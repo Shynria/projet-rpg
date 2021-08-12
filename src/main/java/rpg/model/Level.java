@@ -25,7 +25,7 @@ public class Level {
 	@Column(name = "LVL_BONUS", precision = 5, nullable = false)
 	private int bonus;
 	
-	@OneToMany(mappedBy = "level")
+	@OneToMany(mappedBy = "niveau")
 	private List<Hero> heroes;
 	
 	

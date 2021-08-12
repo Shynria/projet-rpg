@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,8 +37,16 @@ public class Attribut {
 	@Column(name = "ATR_TYPE", length = 50, nullable = false)
 	private String type;
 	
-	@OneToMany (mappedBy = "attribut")
+	@OneToMany (mappedBy = "idAttribut")
 	private List<Objet> objets;
+	
+	@OneToOne
+	@JoinColumn(name = "ATR_MONSTRE")
+	private Bestiaire monstre;
+	
+	@OneToOne
+	@JoinColumn(name = "ATR_HERO")
+	private Hero hero;
 	
 	public int getId() {
 		return id;
@@ -77,6 +88,13 @@ public class Attribut {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	public List<Objet> getObjets() {
+		return objets;
+	}
+	public void setObjets(List<Objet> objets) {
+		this.objets = objets;
 	}
 	
 	public Attribut() {

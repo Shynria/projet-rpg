@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -38,6 +37,23 @@ public class Objet {
 	@Column(name="OBJET_PRIX")
 	private BigDecimal prix;
 	
+	@ManyToOne
+	@JoinColumn(name = "OBJET_INVENTAIRE")
+	private Inventaire inventaire;
+	
+	
+	public int getIdObjet() {
+		return idObjet;
+	}
+	public void setIdObjet(int idObjet) {
+		this.idObjet = idObjet;
+	}
+	public Inventaire getInventaire() {
+		return inventaire;
+	}
+	public void setInventaire(Inventaire inventaire) {
+		this.inventaire = inventaire;
+	}
 	public int getIdEquipement() {
 		return idObjet;
 	}
@@ -74,6 +90,8 @@ public class Objet {
 	public void setPrix(BigDecimal prix) {
 		this.prix = prix;
 	}
+	
+	
 	
 	public Objet() {
 	}

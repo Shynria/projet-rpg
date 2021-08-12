@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,15 +25,31 @@ public class Bestiaire {
 	
 	@Column(name = "BESTIAIRE_XP_DONNE", nullable = false)
 	private int XpDonnee;
-	private List<Attribut> attributs;
+	
+	@OneToOne(mappedBy = "monstre")
+	private Attribut attribut;
 	
 	public Bestiaire() {
 	}
-	public Bestiaire(int level, String nom, List<Attribut> attributs) {
+	public Bestiaire(int level, String nom, int xpDonnee) {
+	super();
+	this.level = level;
+	this.nom = nom;
+	XpDonnee = xpDonnee;
+	}
+	public Bestiaire(int id, int level, String nom, int xpDonnee) {
+		super();
+		this.id = id;
 		this.level = level;
 		this.nom = nom;
-		this.attributs = attributs;
+		XpDonnee = xpDonnee;
 	}
+
+	 public Bestiaire(int level, String nom, Attribut attribut) {
+	 this.level = level;
+	 this.nom = nom;
+	 this.attribut = attribut;
+	 }
 	
 	public int getId() {
 		return id;
@@ -54,10 +72,10 @@ public class Bestiaire {
 		this.nom = nom;
 	}
 	
-	public List<Attribut> getAttributs() {
-		return attributs;
+	public Attribut getAttribut() {
+		return attribut;
 	}
-	public void setAttributs(List<Attribut> attributs) {
-		this.attributs = attributs;
+	public void setAttribut(Attribut attribut) {
+		this.attribut = attribut;
 	}
 }
