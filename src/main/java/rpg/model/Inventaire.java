@@ -10,12 +10,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "inventaire")
 public class Inventaire {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "INVENTAIRE_ID_OBJET", nullable = false)
 	private int IdObjet;
+	
 	@Column(name = "INVENTAIRE_QUANTITE", nullable = false)
 	private int quantite;
+	
 	@Column(name = "INVENTAIRE_NOM", length = 50)
 	private String nom;
 
