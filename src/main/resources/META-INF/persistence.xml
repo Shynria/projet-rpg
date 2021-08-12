@@ -12,6 +12,8 @@
 		<class>rpg.model.Hero</class>
 		<class>rpg.model.Inventaire</class>
 		<class>rpg.model.Level</class>
+		<class>rpg.model.IndexEquipement</class>
+		<class>rpg.model.IndexObjet</class>
 		<!-- Eventuellement d'autres classes d'Entité -->
 		
 		<properties>
