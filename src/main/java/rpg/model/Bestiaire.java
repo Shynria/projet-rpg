@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,7 +27,8 @@ public class Bestiaire {
 	@Column(name = "BESTIAIRE_XP_DONNE", nullable = false)
 	private int XpDonnee;
 	
-	@OneToOne(mappedBy = "monstre")
+	@OneToOne
+	@JoinColumn(name = "BESTIAIRE_ATR_ID")
 	private Attribut attribut;
 	
 	public Bestiaire() {

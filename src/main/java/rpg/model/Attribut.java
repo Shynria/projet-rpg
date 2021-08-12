@@ -1,6 +1,5 @@
 package rpg.model;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,15 +34,10 @@ public class Attribut {
 	@Column(name = "ATR_TYPE", length = 50, nullable = false)
 	private String type;
 	
-	@OneToMany (mappedBy = "idAttribut")
-	private List<Objet> objets;
-	
-	@OneToOne
-	@JoinColumn(name = "ATR_MONSTRE")
+	@OneToOne(mappedBy = "attribut")
 	private Bestiaire monstre;
 	
-	@OneToOne
-	@JoinColumn(name = "ATR_HERO")
+	@OneToOne(mappedBy = "idAttribut")
 	private Hero hero;
 	
 	public int getId() {
@@ -90,11 +82,17 @@ public class Attribut {
 		this.type = type;
 	}
 	
-	public List<Objet> getObjets() {
-		return objets;
+	public Bestiaire getMonstre() {
+		return monstre;
 	}
-	public void setObjets(List<Objet> objets) {
-		this.objets = objets;
+	public void setMonstre(Bestiaire monstre) {
+		this.monstre = monstre;
+	}
+	public Hero getHero() {
+		return hero;
+	}
+	public void setHero(Hero hero) {
+		this.hero = hero;
 	}
 	
 	public Attribut() {

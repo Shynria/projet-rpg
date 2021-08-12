@@ -28,7 +28,8 @@ public class Hero {
 	@Column(name = "HERO_NOM", length = 50, nullable = false)
 	private String nom;
 	
-	@OneToOne(mappedBy = "hero")
+	@OneToOne
+	@JoinColumn(name = "HERO_ATR_ID")
 	private Attribut idAttribut;
 	
 	@Column(name = "HERO_ARGENT", precision = 6, nullable = false)
@@ -116,9 +117,7 @@ public class Hero {
 		super();
 	}
 	
-	public Hero(int idHero, Level niveau, String nom, Attribut idAttribut, BigDecimal argent, int xp) {
-		super();
-		this.idHero = idHero;
+	public Hero(Level niveau, String nom, Attribut idAttribut, BigDecimal argent, int xp) {
 		this.niveau = niveau;
 		this.nom = nom;
 		this.idAttribut = idAttribut;

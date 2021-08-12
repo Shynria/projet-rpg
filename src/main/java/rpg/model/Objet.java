@@ -24,9 +24,8 @@ public class Objet {
 	@Column(name="OBJET_TYPE", length = 50, nullable = false) 
 	private String type;
 	
-	@ManyToOne
-	@JoinColumn(name="OBJET_ID_ATTRIBUT",nullable = false) 
-	private Attribut idAttribut;
+	@Column(name="OBJET_ID_ATTRIBUT",nullable = false) 
+	private String attribut;
 	
 	@Column(name="OBJET_CHANGEMENT",nullable = false) 
 	private int changement;
@@ -66,11 +65,11 @@ public class Objet {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Attribut getIdAttribut() {
-		return idAttribut;
+	public String getIdAttribut() {
+		return attribut;
 	}
-	public void setIdAttribut(Attribut idAttribut) {
-		this.idAttribut = idAttribut;
+	public void setIdAttribut(String attribut) {
+		this.attribut = attribut;
 	}
 	public int getChangement() {
 		return changement;
@@ -95,11 +94,13 @@ public class Objet {
 	
 	public Objet() {
 	}
-	public Objet(int idEquipement, String type, Attribut idAttribut, int changement) {
+	public Objet(String type, String attribut, int changement, BigDecimal prix) {
 		super();
-		idObjet = idEquipement;
 		this.type = type;
-		this.idAttribut = idAttribut;
+		this.attribut = attribut;
 		this.changement = changement;
+		this.prix = prix;
 	}
+	
+	
 }
