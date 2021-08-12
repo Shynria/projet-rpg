@@ -6,7 +6,12 @@
 	<persistence-unit name="EShopUnit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		
+		<class>rpg.model.Attribut</class>
+		<class>rpg.model.Bestiaire</class>
+		<class>rpg.model.Equipement</class>
+		<class>rpg.model.Hero</class>
+		<class>rpg.model.Inventaire</class>
+		<class>rpg.model.Level</class>
 		<!-- Eventuellement d'autres classes d'Entité -->
 		
 		<properties>
