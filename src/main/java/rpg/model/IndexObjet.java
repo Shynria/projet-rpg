@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,7 +25,7 @@ public class IndexObjet {
 	private String type;
 	
 	@ManyToOne
-	@Column(name="IND_ID_ATTRIBUT",nullable = false) 
+	@JoinColumn(name="IND_ID_ATTRIBUT",nullable = false) 
 	private int idAttribut;
 	
 	@Column(name="IND_CHANGEMENT",nullable = false) 
