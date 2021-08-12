@@ -1,5 +1,70 @@
 package rpg.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "level")
 public class Level {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "LVL_ID")
+	private int level;
+	
+	@Column(name = "LVL_POINT_XP", precision = 5, nullable = false)
+	private int pointXP;
+	
+	@Column(name = "LVL_BONUS", precision = 5, nullable = false)
+	private int bonus;
+	
+	@OneToMany(mappedBy = "level")
+	private List<Hero> heroes;
+	
+	
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public int getPointXP() {
+		return pointXP;
+	}
+	public void setPointXP(int pointXP) {
+		this.pointXP = pointXP;
+	}
+	
+	public int getBonus() {
+		return bonus;
+	}
+	public void setBonus(int bonus) {
+		this.bonus = bonus;
+	}
+	
+	public Level() {
+		super();
+	}
+	public Level(int pointXP, int bonus) {
+		super();
+		this.pointXP = pointXP;
+		this.bonus = bonus;
+	}
+	public Level(int level, int pointXP, int bonus) {
+		super();
+		this.level = level;
+		this.pointXP = pointXP;
+		this.bonus = bonus;
+	}
+	
+	
+	
 }

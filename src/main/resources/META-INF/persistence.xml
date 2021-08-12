@@ -8,11 +8,10 @@
 		
 		<class>rpg.model.Attribut</class>
 		<class>rpg.model.Bestiaire</class>
-		<class>rpg.model.Equipement</class>
 		<class>rpg.model.Hero</class>
 		<class>rpg.model.Inventaire</class>
 		<class>rpg.model.Level</class>
-		<class>rpg.model.IndexObjet</class>
+		<class>rpg.model.Objet</class>
 		<!-- Eventuellement d'autres classes d'Entité -->
 		
 		<properties>

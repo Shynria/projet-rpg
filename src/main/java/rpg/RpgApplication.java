@@ -1,4 +1,4 @@
-package rpgApplication;
+package rpg;
 
 public class RpgApplication {
 

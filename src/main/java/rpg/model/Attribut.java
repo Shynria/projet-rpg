@@ -35,7 +35,7 @@ public class Attribut {
 	private String type;
 	
 	@OneToMany (mappedBy = "attribut")
-	private List<IndexObjet> objets;
+	private List<Objet> objets;
 	
 	public int getId() {
 		return id;

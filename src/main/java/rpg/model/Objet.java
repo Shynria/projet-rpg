@@ -9,32 +9,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity 
-@Table(name="indexEquipement") 
-public class IndexObjet {
+@Table(name="objet") 
+public class Objet {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="IND_ID_OBJET")
+	@Column(name="OBJET_ID")
 	private int idObjet;
 	
-	@Column(name="IND_TYPE_OBJET", length = 50, nullable = false) 
+	@Column(name="OBJET_TYPE", length = 50, nullable = false) 
 	private String type;
 	
 	@ManyToOne
-	@JoinColumn(name="IND_ID_ATTRIBUT",nullable = false) 
-	private int idAttribut;
+	@JoinColumn(name="OBJET_ID_ATTRIBUT",nullable = false) 
+	private Attribut idAttribut;
 	
-	@Column(name="IND_CHANGEMENT",nullable = false) 
+	@Column(name="OBJET_CHANGEMENT",nullable = false) 
 	private int changement;
 	
-	@Column(name="IND_LEVEL_OBJET") 
+	@Column(name="OBJET_LEVEL") 
 	private int level;
 	
-	@Column(name="IND_PRIX")
+	@Column(name="OBJET_PRIX")
 	private BigDecimal prix;
 	
 	public int getIdEquipement() {
@@ -49,10 +50,10 @@ public class IndexObjet {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getIdAttribut() {
+	public Attribut getIdAttribut() {
 		return idAttribut;
 	}
-	public void setIdAttribut(int idAttribut) {
+	public void setIdAttribut(Attribut idAttribut) {
 		this.idAttribut = idAttribut;
 	}
 	public int getChangement() {
@@ -74,9 +75,9 @@ public class IndexObjet {
 		this.prix = prix;
 	}
 	
-	public IndexObjet() {
+	public Objet() {
 	}
-	public IndexObjet(int idEquipement, String type, int idAttribut, int changement) {
+	public Objet(int idEquipement, String type, Attribut idAttribut, int changement) {
 		super();
 		idObjet = idEquipement;
 		this.type = type;
