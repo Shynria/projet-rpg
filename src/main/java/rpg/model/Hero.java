@@ -19,7 +19,7 @@ public class Hero {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "HERO_ID", nullable = false)
-	private int idHero;
+	private int id;
 	
 	@ManyToOne
 	@JoinColumn(name="HERO_LEVEL_NIVEAU", nullable = false)
@@ -55,11 +55,11 @@ public class Hero {
 		this.niveau = niveau;
 	}
 	
-	public int getIdHero() {
-		return idHero;
+	public int getId() {
+		return id;
 	}
-	public void setIdHero(int idHero) {
-		this.idHero = idHero;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public String getNom() {

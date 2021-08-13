@@ -19,7 +19,7 @@ public class Objet {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="OBJET_ID")
-	private int idObjet;
+	private int id;
 	
 	@Column(name="OBJET_TYPE", length = 50, nullable = false) 
 	private String type;
@@ -41,11 +41,11 @@ public class Objet {
 	private Inventaire inventaire;
 	
 	
-	public int getIdObjet() {
-		return idObjet;
+	public int getId() {
+		return id;
 	}
-	public void setIdObjet(int idObjet) {
-		this.idObjet = idObjet;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public Inventaire getInventaire() {
 		return inventaire;
@@ -54,10 +54,10 @@ public class Objet {
 		this.inventaire = inventaire;
 	}
 	public int getIdEquipement() {
-		return idObjet;
+		return id;
 	}
 	public void setIdEquipement(int idEquipement) {
-		idObjet = idEquipement;
+		id = idEquipement;
 	}
 	public String getType() {
 		return type;

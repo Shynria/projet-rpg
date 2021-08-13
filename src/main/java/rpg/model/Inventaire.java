@@ -19,7 +19,7 @@ public class Inventaire {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "INVENTAIRE_ID", nullable = false)
-	private int idInventaire;
+	private int id;
 	
 	@OneToMany(mappedBy = "inventaire")
 	private List<Objet> objets;
@@ -29,11 +29,11 @@ public class Inventaire {
 	private Hero hero;
 
 	
-	public int getIdInventaire() {
-		return idInventaire;
+	public int getId() {
+		return id;
 	}
-	public void setIdInventaire(int idInventaire) {
-		this.idInventaire = idInventaire;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public List<Objet> getObjets() {
 		return objets;

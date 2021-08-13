@@ -17,7 +17,7 @@ public class Level {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "LVL_ID")
-	private int level;
+	private int id;
 	
 	@Column(name = "LVL_POINT_XP", precision = 5, nullable = false)
 	private int pointXP;
@@ -29,11 +29,11 @@ public class Level {
 	private List<Hero> heroes;
 	
 	
-	public int getLevel() {
-		return level;
+	public int getId() {
+		return id;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public int getPointXP() {
@@ -58,9 +58,9 @@ public class Level {
 		this.pointXP = pointXP;
 		this.bonus = bonus;
 	}
-	public Level(int level, int pointXP, int bonus) {
+	public Level(int id, int pointXP, int bonus) {
 		super();
-		this.level = level;
+		this.id = id;
 		this.pointXP = pointXP;
 		this.bonus = bonus;
 	}

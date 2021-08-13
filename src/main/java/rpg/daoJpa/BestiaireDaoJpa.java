@@ -2,21 +2,10 @@ package rpg.daoJpa;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import rpg.dao.IBestiaireDao;
 import rpg.model.Bestiaire;
 
-public class BestiaireDaoJpa implements IBestiaireDao {
-
-	protected static EntityManagerFactory emf = Persistence.createEntityManagerFactory("EShopUnit");
-	protected EntityManager em = emf.createEntityManager();
-	
-	public static void close(){
-		emf.close();
-	}
+public class BestiaireDaoJpa extends AbstractDaoJpa<Bestiaire> implements IBestiaireDao {
 
 	@Override
 	public List<Bestiaire> findAll() {
@@ -32,42 +21,4 @@ public class BestiaireDaoJpa implements IBestiaireDao {
 				.getSingleResult();
 	}
 
-	@Override
-	public Bestiaire insert(Bestiaire entity) {
-		em.getTransaction().begin();
-		em.persist(entity);
-		em.getTransaction().commit();
-		return entity;
-	}
-
-	@Override
-	public Bestiaire update(Bestiaire entity) {
-		em.getTransaction().begin();
-		entity = em.merge(entity);
-		em.getTransaction().commit();
-		return entity;
-	}
-
-	@Override
-	public Bestiaire save(Bestiaire entity) {
-		if (entity.getId() > 0) {
-			return this.update(entity);
-		} else {
-			return this.insert(entity);
-		}
-
-	}
-
-	@Override
-	public void delete(Bestiaire entity) {
-		em.getTransaction().begin();
-		em.remove(em.merge(entity));
-		em.getTransaction().commit();
-	}
-
-	@Override
-	public void deleteById(Integer id) {
-		Bestiaire monBestiaireASupprimer = this.findById(id);
-		this.delete(monBestiaireASupprimer);
-	}
 }
