@@ -71,8 +71,8 @@ public class Hero {
 	public Attribut getIdAttribut() {
 		return idAttribut;
 	}
-	public void setIdAttribut(Attribut idAttribut) {
-		this.idAttribut = idAttribut;
+	public void setIdAttribut(Attribut attribut) {
+		this.attribut = attribut;
 	}
 	
 	
