@@ -37,7 +37,7 @@ public class Attribut {
 	@OneToOne(mappedBy = "attribut")
 	private Bestiaire monstre;
 	
-	@OneToOne(mappedBy = "idAttribut")
+	@OneToOne(mappedBy = "attribut")
 	private Hero hero;
 	
 	public int getId() {

@@ -24,7 +24,7 @@ public class RpgApplication {
 		// creation entity manager
 		EntityManager em = emf.createEntityManager();
 		
-		createHero(em);
+		//createHero(em);
 		//createObjet(em);
 		createMonstre(em);
 		//findAllHeros(em);
@@ -45,8 +45,9 @@ public class RpgApplication {
 	}
 	
 	public static void createMonstre(EntityManager em){
-		Attribut monAttribut = new Attribut(4, 3, 2, 2, "monstre");
-		Bestiaire monstre1 = new Bestiaire(1, "blob rouge", monAttribut);
+		Attribut monAttribut = new Attribut(2, 5, 3, 4, "monstre");
+		Bestiaire monstre1 = new Bestiaire(1, "blob bleu", monAttribut.getId());
+		monAttribut.setMonstre(monstre1);
 		
 		em.getTransaction().begin();
 		em.persist(monAttribut);

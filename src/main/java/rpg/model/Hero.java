@@ -21,7 +21,7 @@ public class Hero {
 	@Column(name = "HERO_ID", nullable = false)
 	private int id;
 	
-	@Column(name="HERO_NIVEAU", nullable = false)
+	@Column(name="HERO_NIVEAU")
 	private int niveau;
 	
 	@Column(name = "HERO_NOM", length = 50, nullable = false)
