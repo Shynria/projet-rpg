@@ -115,6 +115,10 @@ public class Attribut {
 		this.agi = agi;
 		this.type = type;
 	}
+	public Attribut(String type) {
+		super();
+		this.type = type;
+	}
 	
 	
 }
