@@ -39,12 +39,11 @@ public class Bestiaire {
 	this.nom = nom;
 	XpDonnee = xpDonnee;
 	}
-	public Bestiaire(int id, int level, String nom, int xpDonnee) {
-		super();
-		this.id = id;
+	public Bestiaire(int level, String nom, int xpDonnee, Attribut attribut) {
 		this.level = level;
 		this.nom = nom;
-		XpDonnee = xpDonnee;
+		this.XpDonnee = xpDonnee;
+		this.attribut = attribut;
 	}
 
 	 public Bestiaire(int level, String nom) {
@@ -58,6 +57,12 @@ public class Bestiaire {
 	 this.attribut = attribut;
 	 }
 	
+	public int getXpDonnee() {
+		return XpDonnee;
+	}
+	public void setXpDonnee(int xpDonnee) {
+		XpDonnee = xpDonnee;
+	}
 	public int getId() {
 		return id;
 	}

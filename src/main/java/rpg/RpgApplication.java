@@ -38,7 +38,8 @@ public class RpgApplication {
 		//createMonstre(em);
 		//findAllHeros(em);
 		
-		rpg.model.Hero.creationHero(em);
+		//rpg.model.Hero.creationHero(em);
+		rpg.model.Hero.partirEnExpedition(em);
 		
 //		IInventaireDao daoInventaire = new InventaireDaoJpa();
 //		IObjetDao daoObjet = new ObjetDaoJpa();
@@ -55,67 +56,6 @@ public class RpgApplication {
 		em.close();
 	}
 	
-//	public static void creationHero(EntityManager em){
-//		System.out.println("-- creation d'un hero : --");
-//		
-//		Hero monHero = new Hero();
-//		monHero.setNiveau(1);
-//		monHero.setArgent(new BigDecimal(20));
-//		System.out.println("votre nom est :");
-//		Scanner clavier1 = new Scanner(System.in);
-//		String nom = clavier1.nextLine();
-//		monHero.setNom(nom);
-//		
-//		System.out.println("\n-- creation des attributs : --");
-//		Attribut monAttribut = new Attribut("hero");
-//		
-//		Scanner clavier2 = new Scanner(System.in);
-//		
-//		System.out.println("vous avez 10 points d'attributs, veuillez les ajouter :");
-//		System.out.println("stats d'attaque :");
-//		int ptAtk = clavier2.nextInt();
-//		
-//		System.out.println("stats de defence :");
-//		int ptDef = clavier2.nextInt();
-//		
-//		
-//		System.out.println("stats d'agilite :");
-//		int ptAgi = clavier2.nextInt();
-//		
-//		
-//		System.out.println("stats de vitalite :");
-//		int ptVit = clavier2.nextInt();
-//		
-//		if(ptAtk+ptDef+ptAgi+ptVit > 10){
-//			System.out.println("veuillez recommencer");
-//		}else{
-//		monAttribut.setAtk(10+ptAtk);
-//		monAttribut.setDef(10+ptDef);
-//		monAttribut.setAgi(10+ptAgi);
-//		monAttribut.setVit(10+ptVit);
-//		monHero.setPvMax(20 + 5*ptVit);
-//		int pvMax = 20 + 5*ptVit;
-//		monHero.setPvActuel(pvMax);
-//		System.out.println("-- Hero cree ! --");
-//		monHero.setAttribut(monAttribut);
-//		
-//		Inventaire inventaire1 = new Inventaire();
-//		inventaire1.setHero(monHero);
-//		
-//		em.getTransaction().begin();
-//		em.persist(monAttribut);
-//		em.persist(monHero);
-//		em.persist(inventaire1);
-//		em.getTransaction().commit();
-//		
-//		System.out.println(monHero.getNom() + "\nAtk\tDef\tAgi\tVit\n" + 
-//				monAttribut.getAtk() + "\t" + monAttribut.getDef() + "\t" + monAttribut.getAgi() + "\t" +
-//				monAttribut.getVit());
-//		}
-//		
-//	}
-	
-	
 	public static void findAllHeros(EntityManager em) {
 
 		List<Hero> mesHeros = em
@@ -130,8 +70,8 @@ public class RpgApplication {
 	}
 	
 	public static void createMonstre(EntityManager em){
-		Attribut monAttribut = new Attribut(1, 1, 1, 1, "monstre");
-		Bestiaire monstre1 = new Bestiaire(1, "blob malade", monAttribut);
+		Attribut monAttribut = new Attribut(10, 13, 6, 9, "monstre");
+		Bestiaire monstre1 = new Bestiaire(2, "sanglier", 30, monAttribut);
 		
 		em.getTransaction().begin();
 		em.persist(monAttribut);

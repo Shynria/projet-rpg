@@ -1,7 +1,11 @@
 package rpg.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +17,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import rpg.dao.IBestiaireDao;
+import rpg.dao.IHeroDao;
+import rpg.daoJpa.BestiaireDaoJpa;
+import rpg.daoJpa.HeroDaoJpa;
 
 @Entity
 @Table(name = "Hero")
@@ -132,6 +141,7 @@ public class Hero {
 		Hero monHero = new Hero();
 		monHero.setNiveau(1);
 		monHero.setArgent(new BigDecimal(20));
+		monHero.setXp(0);
 		System.out.println("votre nom est :");
 		Scanner clavier1 = new Scanner(System.in);
 		String nom = clavier1.nextLine();
@@ -184,6 +194,91 @@ public class Hero {
 				monAttribut.getVit());
 		}
 		
+	}
+	
+	public static void partirEnExpedition(EntityManager em){
+		IHeroDao heroDao = new HeroDaoJpa();
+		IBestiaireDao bestiaireDao = new BestiaireDaoJpa();
+		
+		System.out.println("Veuillez saisir l'id de votre hero :");
+		Scanner clavier1 = new Scanner(System.in);
+		int saisieId = clavier1.nextInt();
+		Hero monHero = heroDao.findById(saisieId);
+		System.out.println("hero selectionne : " + monHero.getNom());
+		
+		System.out.println("choisir une difficulte : \n1. dangereuse\t2. moyenne\t3. facile");
+		int saisie = clavier1.nextInt();
+		
+		List<Bestiaire> monstres = new ArrayList<>();
+		int PourcentPvPerdu;
+		int pvPerdu;
+		
+		switch (saisie) {
+		case 1:
+			int recherche = monHero.getNiveau()+1;
+			for (Bestiaire b : bestiaireDao.findAll()){
+				if(b.getLevel() == recherche){
+					monstres.add(b);
+				}
+			}
+			Bestiaire monstreRandom = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
+			System.out.println("monstre rencontré : " + monstreRandom.getNom());
+			Random random = new Random();
+			PourcentPvPerdu = 40 + random.nextInt(30);
+			pvPerdu = monHero.getPvActuel() * (PourcentPvPerdu/100);
+			monHero.setPvActuel(monHero.getPvActuel() - pvPerdu);
+			monHero.setXp(monHero.getXp() + monstreRandom.getXpDonnee());
+			break;
+		case 2:
+			int recherche2 = monHero.getNiveau();
+			for (Bestiaire b : bestiaireDao.findAll()){
+				if(b.getLevel() == recherche2){
+					monstres.add(b);
+				}
+			}
+			Bestiaire monstreRandom2 = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
+			System.out.println("monstre rencontré : " + monstreRandom2.getNom());
+			Random random2 = new Random();
+			PourcentPvPerdu = 30 + random2.nextInt(20);
+			pvPerdu = monHero.getPvActuel() * (PourcentPvPerdu/100);
+			monHero.setPvActuel(monHero.getPvActuel() - pvPerdu);
+			monHero.setXp(monHero.getXp() + monstreRandom2.getXpDonnee());
+			break;
+		case 3:
+			if(monHero.getNiveau()>1){
+			int recherche3 = monHero.getNiveau()-1;
+			for (Bestiaire b : bestiaireDao.findAll()){
+				if(b.getLevel() == recherche3){
+					monstres.add(b);
+				}
+			}
+			Bestiaire monstreRandom3 = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
+			System.out.println("monstre rencontré : " + monstreRandom3.getNom());
+			Random random3 = new Random();
+			PourcentPvPerdu = 5 + random3.nextInt(15);
+			pvPerdu = monHero.getPvActuel() * (PourcentPvPerdu/100);
+			monHero.setPvActuel(monHero.getPvActuel() - pvPerdu);
+			monHero.setXp(monHero.getXp() + monstreRandom3.getXpDonnee());
+			}
+			else {
+				int recherche3 = monHero.getNiveau();
+				for (Bestiaire b : bestiaireDao.findAll()){
+					if(b.getLevel() == recherche3){
+						monstres.add(b);
+					}
+				}
+				Bestiaire monstreRandom3 = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
+				System.out.println("monstre rencontré : " + monstreRandom3.getNom());
+				Random random3 = new Random();
+				PourcentPvPerdu = 30 + random3.nextInt(20);
+				pvPerdu = monHero.getPvActuel() * (PourcentPvPerdu/100);
+				monHero.setPvActuel(monHero.getPvActuel() - pvPerdu);
+				monHero.setXp(monHero.getXp() + monstreRandom3.getXpDonnee());
+			}
+			
+			break;
+		}
+		heroDao.update(monHero);
 	}
 	
 }
