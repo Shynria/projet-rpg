@@ -15,6 +15,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import rpg.dao.IInventaireDao;
+import rpg.dao.IObjetDao;
+import rpg.daoJpa.InventaireDaoJpa;
+import rpg.daoJpa.ObjetDaoJpa;
+
 @Entity
 @Table(name = "inventaire")
 public class Inventaire {
@@ -34,7 +39,7 @@ public class Inventaire {
 	@OneToOne
 	@JoinColumn(name = "INVENTAIRE_HERO")
 	private Hero hero;
-
+	
 	
 	public int getId() {
 		return id;
@@ -63,5 +68,19 @@ public class Inventaire {
 	public Inventaire() {
 		super();
 	}
+	
+	
+//	public void ListeObjetInventaire(int id){
+//		IInventaireDao daoInventaire = new InventaireDaoJpa();
+//		IObjetDao daoObjet = new ObjetDaoJpa();
+//		
+//		System.out.println(daoInventaire.findById(id).getId() + " " + daoInventaire.findById(id).getObjets());
+//		
+//		daoObjet.findAll();
+//		
+//		for (Objet o : daoObjet.findAll()){
+//			System.out.println(o.getNom()+ " - " + o.getType());
+//		}
+//	}
 
 }

@@ -44,8 +44,19 @@ public class Objet {
 	
 	@ManyToMany(mappedBy = "objets")
 	private List<Inventaire> inventaire;
+
+	@Column(name = "OBJET_EQUIPE")
+	private boolean isEquipe;
+
 	
 	
+	
+	public boolean isEquipe() {
+		return isEquipe;
+	}
+	public void setEquipe(boolean isEquipe) {
+		this.isEquipe = isEquipe;
+	}
 	public int getId() {
 		return id;
 	}
@@ -127,6 +138,19 @@ public class Objet {
 		this.level = level;
 		this.prix = prix;
 	}
+	public Objet(String type, String nom, String attribut, int changement, int level, BigDecimal prix,
+			List<Inventaire> inventaire, boolean isEquipe) {
+		super();
+		this.type = type;
+		this.nom = nom;
+		this.attribut = attribut;
+		this.changement = changement;
+		this.level = level;
+		this.prix = prix;
+		this.inventaire = inventaire;
+		this.isEquipe = isEquipe;
+	}
+	
 	
 	
 	

@@ -36,10 +36,11 @@ public class RpgApplication {
 		//createMonstre(em);
 		//findAllHeros(em);
 		
+		
 		IInventaireDao daoInventaire = new InventaireDaoJpa();
 		IObjetDao daoObjet = new ObjetDaoJpa();
 		
-		System.out.println(daoInventaire.findById(1).getId() + " " + daoInventaire.findById(1).getObjets());
+		System.out.println(daoInventaire.findById(1).getId() + " - " + daoInventaire.findById(1).getObjets());
 		
 		daoObjet.findAll();
 		
@@ -50,6 +51,8 @@ public class RpgApplication {
 		
 		em.close();
 	}
+	
+	
 	public static void findAllHeros(EntityManager em) {
 
 		List<Hero> mesHeros = em
