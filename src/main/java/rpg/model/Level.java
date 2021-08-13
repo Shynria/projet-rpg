@@ -1,13 +1,10 @@
 package rpg.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,9 +21,6 @@ public class Level {
 	
 	@Column(name = "LVL_BONUS", precision = 5, nullable = false)
 	private int bonus;
-	
-	@OneToMany(mappedBy = "niveau")
-	private List<Hero> heroes;
 	
 	
 	public int getId() {

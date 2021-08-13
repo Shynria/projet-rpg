@@ -24,10 +24,10 @@ public class RpgApplication {
 		// creation entity manager
 		EntityManager em = emf.createEntityManager();
 		
-		//createHero(em);
+		createHero(em);
 		//createObjet(em);
-		//createMonstre(em);
-		findAllHeros(em);
+		createMonstre(em);
+		//findAllHeros(em);
 		
 		em.close();
 	}
@@ -45,8 +45,8 @@ public class RpgApplication {
 	}
 	
 	public static void createMonstre(EntityManager em){
-		Attribut monAttribut = new Attribut(4, 2, 5, 3, "monstre");
-		Bestiaire monstre1 = new Bestiaire(1, "blob", monAttribut);
+		Attribut monAttribut = new Attribut(4, 3, 2, 2, "monstre");
+		Bestiaire monstre1 = new Bestiaire(1, "blob rouge", monAttribut);
 		
 		em.getTransaction().begin();
 		em.persist(monAttribut);
@@ -71,11 +71,10 @@ public class RpgApplication {
 	
 	public static void createHero(EntityManager em){
 		Attribut monAttribut = new Attribut(10, 10, 10, 10, "hero");
-		Level monLevel = new Level(50, 0);
-		Hero monHero = new Hero(monLevel, "shynria", monAttribut, new BigDecimal(10), 1);
+		//Level monLevel = new Level(50, 0);
+		Hero monHero = new Hero(1, "zafiria", monAttribut, new BigDecimal(10), 1);
 		
 		em.getTransaction().begin();
-		em.persist(monLevel);
 		em.persist(monAttribut);
 		em.persist(monHero);
 		em.getTransaction().commit();

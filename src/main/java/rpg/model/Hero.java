@@ -21,9 +21,8 @@ public class Hero {
 	@Column(name = "HERO_ID", nullable = false)
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name="HERO_LEVEL_NIVEAU", nullable = false)
-	private Level niveau;
+	@Column(name="HERO_NIVEAU", nullable = false)
+	private int niveau;
 	
 	@Column(name = "HERO_NOM", length = 50, nullable = false)
 	private String nom;
@@ -48,10 +47,10 @@ public class Hero {
 	private Inventaire inventaire;
 	
 	
-	public Level getNiveau() {
+	public int getNiveau() {
 		return niveau;
 	}
-	public void setNiveau(Level niveau) {
+	public void setNiveau(int niveau) {
 		this.niveau = niveau;
 	}
 	
@@ -117,7 +116,7 @@ public class Hero {
 		super();
 	}
 	
-	public Hero(Level niveau, String nom, Attribut idAttribut, BigDecimal argent, int xp) {
+	public Hero(int niveau, String nom, Attribut idAttribut, BigDecimal argent, int xp) {
 		this.niveau = niveau;
 		this.nom = nom;
 		this.idAttribut = idAttribut;
