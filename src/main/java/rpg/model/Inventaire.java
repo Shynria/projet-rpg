@@ -8,9 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "inventaire")
@@ -21,7 +24,11 @@ public class Inventaire {
 	@Column(name = "INVENTAIRE_ID", nullable = false)
 	private int id;
 	
-	@OneToMany(mappedBy = "inventaire")
+	@ManyToMany
+	@JoinTable(
+			name = "INVENTAIRE_OBJET",
+			joinColumns = @JoinColumn(name = "ID_INVENTAIRE", referencedColumnName = "INVENTAIRE_ID"),
+			inverseJoinColumns = @JoinColumn(name = "ID_OBJET", referencedColumnName = "OBJET_ID"))
 	private List<Objet> objets;
 	
 	@OneToOne

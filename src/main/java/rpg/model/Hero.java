@@ -29,7 +29,7 @@ public class Hero {
 	
 	@OneToOne
 	@JoinColumn(name = "HERO_ATR_ID")
-	private Attribut idAttribut;
+	private Attribut attribut;
 	
 	@Column(name = "HERO_ARGENT", precision = 6, nullable = false)
 	private BigDecimal argent;
@@ -68,10 +68,10 @@ public class Hero {
 		this.nom = nom;
 	}
 	
-	public Attribut getIdAttribut() {
-		return idAttribut;
+	public Attribut getAttribut() {
+		return attribut;
 	}
-	public void setIdAttribut(Attribut attribut) {
+	public void setAttribut(Attribut attribut) {
 		this.attribut = attribut;
 	}
 	
@@ -116,10 +116,10 @@ public class Hero {
 		super();
 	}
 	
-	public Hero(int niveau, String nom, Attribut idAttribut, BigDecimal argent, int xp) {
+	public Hero(int niveau, String nom, Attribut attribut, BigDecimal argent, int xp) {
 		this.niveau = niveau;
 		this.nom = nom;
-		this.idAttribut = idAttribut;
+		this.attribut = attribut;
 		this.argent = argent;
 		this.xp = xp;
 	}

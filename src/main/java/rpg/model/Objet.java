@@ -1,6 +1,7 @@
 package rpg.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,6 +26,9 @@ public class Objet {
 	@Column(name="OBJET_TYPE", length = 50, nullable = false) 
 	private String type;
 	
+	@Column(name="OBJET_NOM", length = 50) 
+	private String nom;
+	
 	@Column(name="OBJET_ID_ATTRIBUT",nullable = false) 
 	private String attribut;
 	
@@ -36,9 +41,9 @@ public class Objet {
 	@Column(name="OBJET_PRIX")
 	private BigDecimal prix;
 	
-	@ManyToOne
-	@JoinColumn(name = "OBJET_INVENTAIRE")
-	private Inventaire inventaire;
+	
+	@ManyToMany(mappedBy = "objets")
+	private List<Inventaire> inventaire;
 	
 	
 	public int getId() {
@@ -47,10 +52,10 @@ public class Objet {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Inventaire getInventaire() {
+	public List<Inventaire> getInventaire() {
 		return inventaire;
 	}
-	public void setInventaire(Inventaire inventaire) {
+	public void setInventaire(List<Inventaire> inventaire) {
 		this.inventaire = inventaire;
 	}
 	public int getIdEquipement() {
@@ -90,6 +95,18 @@ public class Objet {
 		this.prix = prix;
 	}
 	
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getAttribut() {
+		return attribut;
+	}
+	public void setAttribut(String attribut) {
+		this.attribut = attribut;
+	}
 	
 	
 	public Objet() {
@@ -101,6 +118,16 @@ public class Objet {
 		this.changement = changement;
 		this.prix = prix;
 	}
+	public Objet(String type, String nom, String attribut, int changement, int level, BigDecimal prix) {
+		super();
+		this.type = type;
+		this.nom = nom;
+		this.attribut = attribut;
+		this.changement = changement;
+		this.level = level;
+		this.prix = prix;
+	}
+	
 	
 	
 }

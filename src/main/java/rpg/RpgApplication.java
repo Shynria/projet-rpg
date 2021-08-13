@@ -4,10 +4,17 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.monitor.MonitorSettingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.omg.PortableServer.IdAssignmentPolicyOperations;
+
+import rpg.dao.IInventaireDao;
+import rpg.dao.IObjetDao;
+import rpg.daoJpa.InventaireDaoJpa;
+import rpg.daoJpa.ObjetDaoJpa;
 import rpg.model.Attribut;
 import rpg.model.Bestiaire;
 import rpg.model.Hero;
@@ -26,8 +33,20 @@ public class RpgApplication {
 		
 		//createHero(em);
 		//createObjet(em);
-		createMonstre(em);
+		//createMonstre(em);
 		//findAllHeros(em);
+		
+		IInventaireDao daoInventaire = new InventaireDaoJpa();
+		IObjetDao daoObjet = new ObjetDaoJpa();
+		
+		System.out.println(daoInventaire.findById(1).getId() + " " + daoInventaire.findById(1).getObjets());
+		
+		daoObjet.findAll();
+		
+		for (Objet o : daoObjet.findAll()){
+			System.out.println(o.getNom()+ " - " + o.getType());
+		}
+		
 		
 		em.close();
 	}
@@ -45,9 +64,8 @@ public class RpgApplication {
 	}
 	
 	public static void createMonstre(EntityManager em){
-		Attribut monAttribut = new Attribut(2, 5, 3, 4, "monstre");
-		Bestiaire monstre1 = new Bestiaire(1, "blob bleu", monAttribut.getId());
-		monAttribut.setMonstre(monstre1);
+		Attribut monAttribut = new Attribut(1, 1, 1, 1, "monstre");
+		Bestiaire monstre1 = new Bestiaire(1, "blob malade", monAttribut);
 		
 		em.getTransaction().begin();
 		em.persist(monAttribut);
@@ -74,10 +92,13 @@ public class RpgApplication {
 		Attribut monAttribut = new Attribut(10, 10, 10, 10, "hero");
 		//Level monLevel = new Level(50, 0);
 		Hero monHero = new Hero(1, "zafiria", monAttribut, new BigDecimal(10), 1);
+		Inventaire inventaire1 = new Inventaire();
+		inventaire1.setHero(monHero);
 		
 		em.getTransaction().begin();
 		em.persist(monAttribut);
 		em.persist(monHero);
+		em.persist(inventaire1);
 		em.getTransaction().commit();
 		
 	}

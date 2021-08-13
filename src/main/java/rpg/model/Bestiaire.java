@@ -47,7 +47,12 @@ public class Bestiaire {
 		XpDonnee = xpDonnee;
 	}
 
-	 public Bestiaire(int level, String nom, Attribut attribut) {
+	 public Bestiaire(int level, String nom) {
+		super();
+		this.level = level;
+		this.nom = nom;
+	}
+	public Bestiaire(int level, String nom, Attribut attribut) {
 	 this.level = level;
 	 this.nom = nom;
 	 this.attribut = attribut;

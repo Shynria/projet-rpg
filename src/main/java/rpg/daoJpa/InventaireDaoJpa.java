@@ -4,6 +4,7 @@ import java.util.List;
 
 import rpg.dao.IInventaireDao;
 import rpg.model.Inventaire;
+import rpg.model.Level;
 
 public class InventaireDaoJpa extends AbstractDaoJpa<Inventaire> implements IInventaireDao {
 
@@ -15,7 +16,9 @@ public class InventaireDaoJpa extends AbstractDaoJpa<Inventaire> implements IInv
 
 	@Override
 	public Inventaire findById(Integer id) {
-		return em.createQuery("select i from inventaire i where i.idInventaire=?1", Inventaire.class).setParameter(1, id)
+		//return em.find(Inventaire.class, id);
+		return em.createQuery("select i from Inventaire i where i.id=?1", Inventaire.class)
+				.setParameter(1, id)
 				.getSingleResult();
 	}
 }
