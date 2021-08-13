@@ -1,9 +1,11 @@
 package rpg.model;
 
 import java.math.BigDecimal;
+import java.util.Scanner;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -123,4 +125,65 @@ public class Hero {
 		this.argent = argent;
 		this.xp = xp;
 	}
+	
+	public static void creationHero(EntityManager em){
+		System.out.println("-- creation d'un hero : --");
+		
+		Hero monHero = new Hero();
+		monHero.setNiveau(1);
+		monHero.setArgent(new BigDecimal(20));
+		System.out.println("votre nom est :");
+		Scanner clavier1 = new Scanner(System.in);
+		String nom = clavier1.nextLine();
+		monHero.setNom(nom);
+		
+		System.out.println("\n-- creation des attributs : --");
+		Attribut monAttribut = new Attribut("hero");
+		
+		Scanner clavier2 = new Scanner(System.in);
+		
+		System.out.println("vous avez 10 points d'attributs, veuillez les ajouter :");
+		System.out.println("stats d'attaque :");
+		int ptAtk = clavier2.nextInt();
+		
+		System.out.println("stats de defence :");
+		int ptDef = clavier2.nextInt();
+		
+		
+		System.out.println("stats d'agilite :");
+		int ptAgi = clavier2.nextInt();
+		
+		
+		System.out.println("stats de vitalite :");
+		int ptVit = clavier2.nextInt();
+		
+		if(ptAtk+ptDef+ptAgi+ptVit > 10){
+			System.out.println("veuillez recommencer");
+		}else{
+		monAttribut.setAtk(10+ptAtk);
+		monAttribut.setDef(10+ptDef);
+		monAttribut.setAgi(10+ptAgi);
+		monAttribut.setVit(10+ptVit);
+		monHero.setPvMax(20 + 5*ptVit);
+		int pvMax = 20 + 5*ptVit;
+		monHero.setPvActuel(pvMax);
+		System.out.println("-- Hero cree ! --");
+		monHero.setAttribut(monAttribut);
+		
+		Inventaire inventaire1 = new Inventaire();
+		inventaire1.setHero(monHero);
+		
+		em.getTransaction().begin();
+		em.persist(monAttribut);
+		em.persist(monHero);
+		em.persist(inventaire1);
+		em.getTransaction().commit();
+		
+		System.out.println(monHero.getNom() + "\nAtk\tDef\tAgi\tVit\n" + 
+				monAttribut.getAtk() + "\t" + monAttribut.getDef() + "\t" + monAttribut.getAgi() + "\t" +
+				monAttribut.getVit());
+		}
+		
+	}
+	
 }
