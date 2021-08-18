@@ -194,10 +194,47 @@ public class Hero {
 				monAttribut.getAtk() + "\t" + monAttribut.getDef() + "\t" + monAttribut.getAgi() + "\t" +
 				monAttribut.getVit());
 		}
-		
 	}
 	
-	
-
+	public boolean attributLevelUp(EntityManager em, Hero monHero){
+		System.out.println("-- vous avez level up ! --\nvous avez 5 point d'attribut à répartir :");
+		Scanner clavier1 = new Scanner(System.in);
+		
+		System.out.println("stats d'attaque :");
+		System.out.println("vous avez " + monHero.getAttribut().getAtk() + " Atk\nvous ajoutez :");
+		int ptAtk = clavier1.nextInt();
+		
+		System.out.println("stats de defence :");
+		System.out.println("vous avez " + monHero.getAttribut().getDef() + " Def\nvous ajoutez :");
+		int ptDef = clavier1.nextInt();
+		
+		
+		System.out.println("stats d'agilite :");
+		System.out.println("vous avez " + monHero.getAttribut().getAgi() + " Agi\nvous ajoutez :");
+		int ptAgi = clavier1.nextInt();
+		
+		
+		System.out.println("stats de vitalite :");
+		System.out.println("vous avez " + monHero.getAttribut().getVit() + " vit\nvous ajoutez :");
+		int ptVit = clavier1.nextInt();
+		
+		if(ptAtk+ptDef+ptAgi+ptVit != 5){
+			System.out.println("veuillez recommencer");
+			return false;
+		}else{
+		monHero.getAttribut().setAtk(monHero.getAttribut().getAtk() + ptAtk);
+		monHero.getAttribut().setDef(monHero.getAttribut().getDef() + ptDef);
+		monHero.getAttribut().setAgi(monHero.getAttribut().getAgi() + ptAgi);
+		monHero.getAttribut().setVit(monHero.getAttribut().getVit() + ptVit);
+		monHero.setPvMax(monHero.getPvMax() + 5*ptVit);
+		
+		System.out.println("-- Attributs modifiés ! --");
+		
+		em.getTransaction().begin();
+		em.persist(monHero);
+		em.getTransaction().commit();
+		return true;
+		}
+	}
 	
 }
