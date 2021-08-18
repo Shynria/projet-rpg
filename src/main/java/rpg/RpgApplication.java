@@ -4,6 +4,7 @@ import java.lang.invoke.SwitchPoint;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import javax.management.monitor.MonitorSettingException;
@@ -35,7 +36,7 @@ public class RpgApplication {
 		
 		//createHero(em);
 		//createObjet(em);
-		//createMonstre(em);
+		//createMonstre(em, new Attribut(18, 15, 8, 12, "monstre"), new Bestiaire(2, "tortue carnivore", 35));
 		//findAllHeros(em);
 		
 		//rpg.model.Hero.creationHero(em);
@@ -51,7 +52,9 @@ public class RpgApplication {
 //		for (Objet o : daoObjet.findAll()){
 //			System.out.println(o.getNom()+ " - " + o.getType());
 //		}
-//		
+//		Random R = new Random();
+//		int nb = R.nextInt(20) + 100;
+//		System.out.println(nb);
 		
 		em.close();
 	}
@@ -69,13 +72,12 @@ public class RpgApplication {
 		}
 	}
 	
-	public static void createMonstre(EntityManager em){
-		Attribut monAttribut = new Attribut(10, 13, 6, 9, "monstre");
-		Bestiaire monstre1 = new Bestiaire(2, "sanglier", 30, monAttribut);
+	public static void createMonstre(EntityManager em, Attribut attribut, Bestiaire monstre){
+		monstre.setAttribut(attribut);
 		
 		em.getTransaction().begin();
-		em.persist(monAttribut);
-		em.persist(monstre1);
+		em.persist(attribut);
+		em.persist(monstre);
 		em.getTransaction().commit();
 	}
 	

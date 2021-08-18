@@ -1,11 +1,20 @@
 package rpg.model;
 
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import rpg.dao.IHeroDaoJpaRepository;
+import rpg.dao.ILevelDaoJpaRepository;
 
 @Entity
 @Table(name = "level")
@@ -58,7 +67,21 @@ public class Level {
 		this.pointXP = pointXP;
 		this.bonus = bonus;
 	}
-	
-	
+//	//@Autowired
+//	private ILevelDaoJpaRepository daoLevel;
+//	
+//	public void levelUp(EntityManager em, Hero monHero){
+//		Optional<Level> optLevel = daoLevel.findById(monHero.getId());
+//		
+//		if (monHero.getXp()>= optLevel.get().getPointXP()){
+//			monHero.setNiveau(monHero.getNiveau() + 1);
+//			monHero.setXp(monHero.getXp() - optLevel.get().getPointXP());
+//			Attribut monAttribut = monHero.getAttribut();
+//			monAttribut.attributLevelUp(em, monHero);
+//			if (monAttribut.attributLevelUp(em, monHero) == false){
+//				monAttribut.attributLevelUp(em, monHero);
+//			}
+//		} 
+	//}
 	
 }
