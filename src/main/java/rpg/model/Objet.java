@@ -32,8 +32,11 @@ public class Objet {
 	@Column(name="OBJET_ID_ATTRIBUT",nullable = false) 
 	private String attribut;
 	
-	@Column(name="OBJET_CHANGEMENT",nullable = false) 
+	@Column(name="OBJET_CHANGEMENT") 
 	private int changement;
+	
+	@Column(name="OBJET_PV_RENDU")
+	private int pvRendu;
 	
 	@Column(name="OBJET_LEVEL") 
 	private int level;
@@ -51,6 +54,12 @@ public class Objet {
 	
 	
 	
+	public int getPvRendu() {
+		return pvRendu;
+	}
+	public void setPvRendu(int pvRendu) {
+		this.pvRendu = pvRendu;
+	}
 	public boolean isEquipe() {
 		return isEquipe;
 	}
@@ -149,6 +158,15 @@ public class Objet {
 		this.prix = prix;
 		this.inventaire = inventaire;
 		this.isEquipe = isEquipe;
+	}
+	
+	public Objet(String type, String nom, String attribut, int pvRendu, BigDecimal prix) {
+		super();
+		this.type = type;
+		this.nom = nom;
+		this.attribut = attribut;
+		this.pvRendu = pvRendu;
+		this.prix = prix;
 	}
 	
 	

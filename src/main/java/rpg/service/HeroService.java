@@ -1,5 +1,6 @@
 package rpg.service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +42,45 @@ public class HeroService {
 	
 	//Ici vous pouvez récupérer tout ce qui est managée par SPRING : DAO, Services, etc.
 	
+	
+	public void repos(){
+		System.out.println("Veuillez saisir l'id de votre hero :");
+		Scanner clavier1 = new Scanner(System.in);
+		int saisieId = clavier1.nextInt();
+		Hero monHero = heroDao.findById(saisieId).get();
+		
+		System.out.println("pour vous reposer, vous evez deux choix :");
+		System.out.println("1. camper (gratuit)\t2. l'auberge (5 or)");
+		Scanner clavier = new Scanner(System.in);
+		int saisie = clavier.nextInt();
+		Random R = new Random();
+		BigDecimal prix = new BigDecimal(5);
+		int PourcentPvGagne;
+		double pvGagne;
+		
+		switch (saisie) {
+		case 1:
+			PourcentPvGagne = R.nextInt(20) + 30;
+			pvGagne = monHero.getPvMax() * ((double)PourcentPvGagne/100);
+			int pvGagneRound = (int) Math.round(pvGagne);
+			monHero.setPvActuel(monHero.getPvActuel() + pvGagneRound);	
+			break;
+
+		case 2:
+			PourcentPvGagne = R.nextInt(20) + 80;
+			pvGagne = monHero.getPvMax() * ((double)PourcentPvGagne/100);
+			pvGagneRound = (int) Math.round(pvGagne);
+			monHero.setPvActuel(monHero.getPvActuel() + pvGagneRound);
+			monHero.setArgent(monHero.getArgent().subtract(prix));
+			break;
+		}
+		if(monHero.getPvActuel()>monHero.getPvMax()){
+			monHero.setPvActuel(monHero.getPvMax());
+		}
+		heroDao.save(monHero);
+		System.out.println("il vous reste " + monHero.getArgent() + " or");
+		System.out.println("vous êtes à " + monHero.getPvActuel() + " PV");
+	}
 
 	public void partirEnExpedition(){
 		System.out.println("Veuillez saisir l'id de votre hero :");
@@ -60,12 +100,6 @@ public class HeroService {
 		case 1:
 			int recherche = monHero.getNiveau()+1;
 			List<Bestiaire> monstres = bestiaireDao.findByLevel(recherche);
-			
-//			for (Bestiaire b : bestiaireDao.findAll()){
-//				if(b.getLevel() == recherche){
-//					monstres.add(b);
-//				}
-//			}
 			Bestiaire monstreRandom = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
 			System.out.println("monstre rencontré : " + monstreRandom.getNom());
 			PourcentPvPerdu = R.nextInt(30) + 40;
@@ -77,11 +111,6 @@ public class HeroService {
 		case 2:
 			recherche = monHero.getNiveau();
 			monstres = bestiaireDao.findByLevel(recherche);
-//			for (Bestiaire b : bestiaireDao.findAll()){
-//				if(b.getLevel() == recherche2){
-//					monstres.add(b);
-//				}
-//			}
 			Bestiaire monstreRandom2 = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
 			System.out.println("monstre rencontré : " + monstreRandom2.getNom());
 			PourcentPvPerdu = R.nextInt(20) + 30;
@@ -94,11 +123,6 @@ public class HeroService {
 			if(monHero.getNiveau()>1){
 			recherche = monHero.getNiveau()-1;
 			monstres = bestiaireDao.findByLevel(recherche);
-//			for (Bestiaire b : bestiaireDao.findAll()){
-//				if(b.getLevel() == recherche3){
-//					monstres.add(b);
-//				}
-//			}
 			Bestiaire monstreRandom3 = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
 			System.out.println("monstre rencontré : " + monstreRandom3.getNom());
 			PourcentPvPerdu = 5 + R.nextInt(15);
@@ -110,11 +134,6 @@ public class HeroService {
 			else {
 				recherche = monHero.getNiveau();
 				monstres = bestiaireDao.findByLevel(recherche);
-//				for (Bestiaire b : bestiaireDao.findAll()){
-//					if(b.getLevel() == recherche){
-//						monstres.add(b);
-//					}
-//				}
 				Bestiaire monstreRandom3 = monstres.get(ThreadLocalRandom.current().nextInt(0,monstres.size() - 1));
 				System.out.println("monstre rencontré : " + monstreRandom3.getNom());
 				PourcentPvPerdu = 30 + R.nextInt(20);
@@ -123,7 +142,6 @@ public class HeroService {
 				monHero.setPvActuel(monHero.getPvActuel() - pvPerduRound);
 				monHero.setXp(monHero.getXp() + monstreRandom3.getXpDonnee());
 			}
-			
 			break;
 		}
 		System.out.println("il vous reste "+ monHero.getPvActuel()+ " HP");
@@ -139,13 +157,8 @@ public class HeroService {
 		if (monHero.getXp()>= optLevel.get().getPointXP()){
 			monHero.setNiveau(monHero.getNiveau() + 1);
 			monHero.setXp(monHero.getXp() - (optLevel.get().getPointXP()));
-			//Attribut monAttribut = monHero.getAttribut();
-			attributLevelUp(monHero);
-			if (attributLevelUp(monHero) == false){
+			while (attributLevelUp(monHero) == false){
 				System.out.println("mauvaise répartition, try again !");
-				attributLevelUp(monHero);
-			}else{
-				System.out.println("if level up true");
 			}
 		} 
 	}
@@ -184,9 +197,6 @@ public class HeroService {
 		monHero.setPvMax(monHero.getPvMax() + 5*ptVit);
 		
 		System.out.println("-- Attributs modifiés ! --");
-		
-		//heroDao.save(monHero);
-		
 		}return true;
 	}
 }

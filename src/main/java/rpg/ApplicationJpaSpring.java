@@ -17,7 +17,8 @@ public class ApplicationJpaSpring {
 		
 		//ILevelDaoJpaRepository levelDao = myContext.getBean(ILevelDaoJpaRepository.class);
 		
-		srvHero.partirEnExpedition();
+		//srvHero.partirEnExpedition();
+		srvHero.repos();
 	}
 
 }
