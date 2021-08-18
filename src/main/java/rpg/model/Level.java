@@ -67,21 +67,7 @@ public class Level {
 		this.pointXP = pointXP;
 		this.bonus = bonus;
 	}
-//	//@Autowired
-//	private ILevelDaoJpaRepository daoLevel;
-//	
-//	public void levelUp(EntityManager em, Hero monHero){
-//		Optional<Level> optLevel = daoLevel.findById(monHero.getId());
-//		
-//		if (monHero.getXp()>= optLevel.get().getPointXP()){
-//			monHero.setNiveau(monHero.getNiveau() + 1);
-//			monHero.setXp(monHero.getXp() - optLevel.get().getPointXP());
-//			Attribut monAttribut = monHero.getAttribut();
-//			monAttribut.attributLevelUp(em, monHero);
-//			if (monAttribut.attributLevelUp(em, monHero) == false){
-//				monAttribut.attributLevelUp(em, monHero);
-//			}
-//		} 
-	//}
+
+	
 	
 }
