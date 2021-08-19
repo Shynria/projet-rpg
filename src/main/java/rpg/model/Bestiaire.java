@@ -28,14 +28,24 @@ public class Bestiaire {
 	@Column(name = "BESTIAIRE_XP_DONNE", nullable = false)
 	private int XpDonnee;
 	
+	@Column(name = "BESTIAIRE_THUNE")
+	private int thune;
+	
 	@OneToOne
 	@JoinColumn(name = "BESTIAIRE_ATR_ID")
 	private Attribut attribut;
 	
 	public Bestiaire() {
 	}
+	public Bestiaire(int level, String nom, int xpDonnee, int thune, Attribut attribut) {
+		this.level = level;
+		this.nom = nom;
+		this.XpDonnee = xpDonnee;
+		this.thune = thune;
+		this.attribut = attribut;
+		}
+	
 	public Bestiaire(int level, String nom, int xpDonnee) {
-	super();
 	this.level = level;
 	this.nom = nom;
 	XpDonnee = xpDonnee;
@@ -48,7 +58,6 @@ public class Bestiaire {
 	}
 
 	 public Bestiaire(int level, String nom) {
-		super();
 		this.level = level;
 		this.nom = nom;
 	}
@@ -58,6 +67,13 @@ public class Bestiaire {
 	 this.attribut = attribut;
 	 }
 	
+	
+	public int getThune() {
+		return thune;
+	}
+	public void setThune(int thune) {
+		this.thune = thune;
+	}
 	public int getXpDonnee() {
 		return XpDonnee;
 	}
