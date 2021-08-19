@@ -20,6 +20,7 @@ import rpg.dao.IHeroDao;
 import rpg.dao.IHeroDaoJpaRepository;
 import rpg.dao.IInventiaireDaoJpaRepository;
 import rpg.dao.ILevelDaoJpaRepository;
+import rpg.dao.IObjetDaoJpaRepository;
 import rpg.daoJpa.BestiaireDaoJpa;
 import rpg.daoJpa.HeroDaoJpa;
 import rpg.model.Attribut;
@@ -27,11 +28,15 @@ import rpg.model.Bestiaire;
 import rpg.model.Hero;
 import rpg.model.Inventaire;
 import rpg.model.Level;
+import rpg.model.Objet;
 
 @Service
 public class HeroService {
 	@Autowired
 	private IHeroDaoJpaRepository heroDao;
+	
+	@Autowired
+	private IObjetDaoJpaRepository objetDao;
 	
 	@Autowired
 	private IBestiaireDaoJpaRepository bestiaireDao;
@@ -47,6 +52,55 @@ public class HeroService {
 	
 	//Ici vous pouvez récupérer tout ce qui est managée par SPRING : DAO, Services, etc.
 	
+	public void voirMonEquipement(Hero hero){
+		System.out.println("vous êtes equipe de :");
+		System.out.println("arme :");
+		if (hero.getArme() == null) {
+			System.out.println("vide");
+		} else {
+			System.out.println(hero.getArme());
+		}
+		System.out.println("armure :");
+		if (hero.getArmure() == null) {
+			System.out.println("vide");
+		} else {
+			System.out.println(hero.getArmure());
+		}
+		System.out.println("bijoux :");
+		if (hero.getBijoux() == null) {
+			System.out.println("vide");
+		} else {
+			System.out.println(hero.getBijoux());
+		}
+	}
+	
+	public void equiperObjet() {
+		System.out.println("-- Veuillez saisir le nom de votre hero : --");
+		Scanner clavier = new Scanner(System.in);
+		String saisie = clavier.nextLine();
+		Hero monHero = heroDao.findByNom(saisie);
+		List<Objet> mesObjets = monHero.getInventaire().getObjets();
+		
+		voirMonEquipement(monHero);
+
+		System.out.println("votre inventaire contient :");
+		inventaireDao.findById(monHero.getInventaire().getId());
+		for (Objet o : mesObjets) {
+			System.out.println(o.getId() + " - " + o.getNom());
+		}
+		System.out.println("saisir le nom de l'objet que vous voulez equiper :");
+		String saisie2 = clavier.nextLine();
+		Objet objetAequiper = objetDao.findByNom(saisie2);
+		if(objetAequiper.getType()=="arme"){
+			monHero.setArme(objetAequiper);
+		}else if(objetAequiper.getType()=="armure"){
+			monHero.setArmure(objetAequiper);
+		}else if(objetAequiper.getType()=="bijoux"){
+			monHero.setBijoux(objetAequiper);
+		}else{
+			System.out.println("objet inexixtant");
+		}
+	}
 	
 	public void createHero() {
 		Attribut attribut = new Attribut("hero");

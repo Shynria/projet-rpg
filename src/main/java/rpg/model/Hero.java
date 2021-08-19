@@ -58,7 +58,33 @@ public class Hero {
 	@OneToOne(mappedBy = "hero")
 	private Inventaire inventaire;
 	
+	@Column(name = "HERO_ARME")
+	private Objet arme;
+	@Column(name = "HERO_ARMURE")
+	private Objet armure;
+	@Column(name = "HERO_BIJOUX")
+	private Objet bijoux;
 	
+	
+	
+	public Objet getArme() {
+		return arme;
+	}
+	public void setArme(Objet arme) {
+		this.arme = arme;
+	}
+	public Objet getArmure() {
+		return armure;
+	}
+	public void setArmure(Objet armure) {
+		this.armure = armure;
+	}
+	public Objet getBijoux() {
+		return bijoux;
+	}
+	public void setBijoux(Objet bijoux) {
+		this.bijoux = bijoux;
+	}
 	public int getNiveau() {
 		return niveau;
 	}

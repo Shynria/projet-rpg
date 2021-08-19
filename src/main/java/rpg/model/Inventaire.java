@@ -40,6 +40,7 @@ public class Inventaire {
 	@JoinColumn(name = "INVENTAIRE_HERO")
 	private Hero hero;
 	
+
 	
 	public int getId() {
 		return id;

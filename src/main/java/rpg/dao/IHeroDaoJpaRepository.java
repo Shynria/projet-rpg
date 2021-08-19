@@ -6,4 +6,6 @@ import rpg.model.Hero;
 
 public interface IHeroDaoJpaRepository extends JpaRepository<Hero, Integer> {
 	public Hero findFirstByOrderById();
+	
+	public Hero findByNom(String nom);
 }

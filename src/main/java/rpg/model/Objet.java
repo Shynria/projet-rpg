@@ -48,9 +48,7 @@ public class Objet {
 	@ManyToMany(mappedBy = "objets")
 	private List<Inventaire> inventaire;
 
-	@Column(name = "OBJET_EQUIPE")
-	private boolean isEquipe;
-
+	
 	
 	
 	
@@ -59,12 +57,6 @@ public class Objet {
 	}
 	public void setPvRendu(int pvRendu) {
 		this.pvRendu = pvRendu;
-	}
-	public boolean isEquipe() {
-		return isEquipe;
-	}
-	public void setEquipe(boolean isEquipe) {
-		this.isEquipe = isEquipe;
 	}
 	public int getId() {
 		return id;
@@ -148,7 +140,7 @@ public class Objet {
 		this.prix = prix;
 	}
 	public Objet(String type, String nom, String attribut, int changement, int level, BigDecimal prix,
-			List<Inventaire> inventaire, boolean isEquipe) {
+			List<Inventaire> inventaire) {
 		super();
 		this.type = type;
 		this.nom = nom;
@@ -157,7 +149,6 @@ public class Objet {
 		this.level = level;
 		this.prix = prix;
 		this.inventaire = inventaire;
-		this.isEquipe = isEquipe;
 	}
 	
 	public Objet(String type, String nom, String attribut, int pvRendu, BigDecimal prix) {
