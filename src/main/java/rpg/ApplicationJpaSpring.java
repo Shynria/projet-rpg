@@ -1,12 +1,16 @@
 package rpg;
 
+import java.math.BigDecimal;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import rpg.config.AppConfig;
 import rpg.dao.IHeroDaoJpaRepository;
 import rpg.dao.ILevelDaoJpaRepository;
 import rpg.model.Hero;
+import rpg.model.Objet;
 import rpg.service.HeroService;
+import rpg.service.ObjetService;
 
 public class ApplicationJpaSpring {
 
@@ -14,11 +18,13 @@ public class ApplicationJpaSpring {
 		AnnotationConfigApplicationContext myContext = 
 				new AnnotationConfigApplicationContext(AppConfig.class);
 		HeroService srvHero = myContext.getBean(HeroService.class);
+		ObjetService srvObjet = myContext.getBean(ObjetService.class);
 		
 		//ILevelDaoJpaRepository levelDao = myContext.getBean(ILevelDaoJpaRepository.class);
 		
 		//srvHero.partirEnExpedition();
-		srvHero.repos();
+		//srvHero.createHero();
+		srvObjet.createObjet(new Objet("armure", "armure en cuir", "agi", 2, 1, new BigDecimal(3)));
 	}
 
 }

@@ -18,12 +18,14 @@ import rpg.dao.IBestiaireDao;
 import rpg.dao.IBestiaireDaoJpaRepository;
 import rpg.dao.IHeroDao;
 import rpg.dao.IHeroDaoJpaRepository;
+import rpg.dao.IInventiaireDaoJpaRepository;
 import rpg.dao.ILevelDaoJpaRepository;
 import rpg.daoJpa.BestiaireDaoJpa;
 import rpg.daoJpa.HeroDaoJpa;
 import rpg.model.Attribut;
 import rpg.model.Bestiaire;
 import rpg.model.Hero;
+import rpg.model.Inventaire;
 import rpg.model.Level;
 
 @Service
@@ -40,8 +42,67 @@ public class HeroService {
 	@Autowired
 	private IAttributDaoJpaRepository AttributDao;
 	
+	@Autowired
+	private IInventiaireDaoJpaRepository inventaireDao;
+	
 	//Ici vous pouvez récupérer tout ce qui est managée par SPRING : DAO, Services, etc.
 	
+	
+	public void createHero() {
+		Attribut attribut = new Attribut("hero");
+		Hero monHero = new Hero();
+		Inventaire inventaire = new Inventaire();
+		Scanner clavier = new Scanner(System.in);
+		Scanner clavierInt = new Scanner(System.in);
+		System.out.println("Creation de votre heros !!" + "\n" + "Choissisez votre nom : ");
+
+		String nom = clavier.nextLine();
+		monHero.setNom(nom);
+		System.out.println("Veuillez repartir vos 10 points d'attributs: ");
+
+		System.out.println("stats d'attaque :");
+		System.out.println("vous avez 10 Atk\nvous ajoutez :");
+		int ptAtk = clavierInt.nextInt();
+
+		System.out.println("stats de defence :");
+		System.out.println("vous avez 10 Def\nvous ajoutez :");
+		int ptDef = clavierInt.nextInt();
+
+		System.out.println("stats d'agilite :");
+		System.out.println("vous avez 10 Agi\nvous ajoutez :");
+		int ptAgi = clavierInt.nextInt();
+
+		System.out.println("stats de vitalite :");
+		System.out.println("vous avez 10 Vit\nvous ajoutez :");
+		int ptVit = clavierInt.nextInt();
+
+		if (ptAtk + ptDef + ptAgi + ptVit != 10) {
+			System.out.println("veuillez recommencer");
+		} else {
+			attribut.setAtk(10 + ptAtk);
+			attribut.setDef(10 + ptDef);
+			attribut.setAgi(10 + ptAgi);
+			attribut.setVit(10 + ptVit);
+			monHero.setPvMax(20 + 5 * ptVit);
+			int pvMax = 20 + 5 * ptVit;
+			monHero.setPvActuel(pvMax);
+			System.out.println("-- Hero cree ! --");
+			monHero.setAttribut(attribut);
+
+			monHero.setNiveau(1);
+			monHero.setArgent(new BigDecimal(20));
+			monHero.setXp(0);
+			inventaire.setHero(monHero);
+
+		}
+		AttributDao.save(attribut);
+		heroDao.save(monHero);
+		inventaireDao.save(inventaire);
+		
+		System.out.println(monHero.getNom() + "\nAtk\tDef\tAgi\tVit\n" + 
+				monHero.getAttribut().getAtk() + "\t" + monHero.getAttribut().getDef() + "\t" 
+				+ monHero.getAttribut().getAgi() + "\t" + monHero.getAttribut().getVit());
+	}
 	
 	public void repos(){
 		System.out.println("Veuillez saisir l'id de votre hero :");

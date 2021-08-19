@@ -168,18 +168,18 @@ public class Hero {
 		System.out.println("stats de vitalite :");
 		int ptVit = clavier2.nextInt();
 		
-		if(ptAtk+ptDef+ptAgi+ptVit > 10){
+		if (ptAtk + ptDef + ptAgi + ptVit > 10) {
 			System.out.println("veuillez recommencer");
-		}else{
-		monAttribut.setAtk(10+ptAtk);
-		monAttribut.setDef(10+ptDef);
-		monAttribut.setAgi(10+ptAgi);
-		monAttribut.setVit(10+ptVit);
-		monHero.setPvMax(20 + 5*ptVit);
-		int pvMax = 20 + 5*ptVit;
-		monHero.setPvActuel(pvMax);
-		System.out.println("-- Hero cree ! --");
-		monHero.setAttribut(monAttribut);
+		} else {
+			monAttribut.setAtk(10 + ptAtk);
+			monAttribut.setDef(10 + ptDef);
+			monAttribut.setAgi(10 + ptAgi);
+			monAttribut.setVit(10 + ptVit);
+			monHero.setPvMax(20 + 5 * ptVit);
+			int pvMax = 20 + 5 * ptVit;
+			monHero.setPvActuel(pvMax);
+			System.out.println("-- Hero cree ! --");
+			monHero.setAttribut(monAttribut);
 		
 		Inventaire inventaire1 = new Inventaire();
 		inventaire1.setHero(monHero);

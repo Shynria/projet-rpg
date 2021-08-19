@@ -38,7 +38,7 @@ public class RpgApplication {
 		//createObjet(em);
 		//createMonstre(em, new Attribut(18, 15, 8, 12, "monstre"), new Bestiaire(2, "tortue carnivore", 35));
 		//findAllHeros(em);
-		createLevel(em, new Level(900, 0));
+		//createLevel(em, new Level(900, 0));
 		
 		//rpg.model.Hero.creationHero(em);
 		//rpg.model.Hero.partirEnExpedition(em);
@@ -58,48 +58,6 @@ public class RpgApplication {
 //		System.out.println(nb);
 		
 		em.close();
-	}
-	public static void createLevel(EntityManager em, Level level){
-		em.getTransaction().begin();
-		em.persist(level);
-		em.getTransaction().commit();
-	}
-	
-	public static void findAllHeros(EntityManager em) {
-
-		List<Hero> mesHeros = em
-			
-			.createQuery("SELECT h FROM Hero h where h.idHero > ?1", Hero.class)
-			.setParameter(1, 0)
-			.getResultList();
-		
-		for (Hero h : mesHeros) {
-			System.out.println(h.getNom());
-		}
-	}
-	
-	public static void createMonstre(EntityManager em, Attribut attribut, Bestiaire monstre){
-		monstre.setAttribut(attribut);
-		
-		em.getTransaction().begin();
-		em.persist(attribut);
-		em.persist(monstre);
-		em.getTransaction().commit();
-	}
-	
-	public static void createObjet(EntityManager em){
-		List<Objet> objets = new ArrayList<>();
-		Objet monObjet = new Objet("epee molle", "atk", 1,new BigDecimal(2));
-		monObjet.setLevel(1);
-		objets.add(monObjet);
-		Inventaire inventaire1 = new Inventaire();
-		inventaire1.setObjets(objets);
-		
-		em.getTransaction().begin();
-		em.persist(monObjet);
-		em.persist(inventaire1);
-		em.getTransaction().commit();
-		
 	}
 	
 	public static void createHero(EntityManager em){
