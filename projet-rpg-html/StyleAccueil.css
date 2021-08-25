@@ -1,0 +1,38 @@
+body{
+    background-image: url("background/accueil.jpg");
+    background-repeat: no-repeat;
+    background-position-y : 120px;
+    background-color: black;
+    color: white;
+}
+
+img[alt="Partir en expédition"]{
+    margin-top: 150px;
+    margin-left: 760px;
+    animation: pulse 2s infinite;
+}
+
+img[alt="trader"]{
+    margin-top: 190px;
+    margin-left: 850px;
+    animation: pulse 2s infinite;
+}
+
+img[alt="auberge"]{
+    margin-top: -50px;
+    margin-left: 550px;
+    animation: pulse 2s infinite;
+}
+
+img[alt="tente"]{
+    margin-top: -50px;
+    margin-left: 350px;
+    animation: pulse 2s infinite;
+}
+header p{
+    margin-left: 1350px;
+}
+
+h1 {
+    text-indent: 430px;
+    border-top: solid 2px  gray;}

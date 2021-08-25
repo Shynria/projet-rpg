@@ -1,0 +1,78 @@
+body {
+background-image: url('background/image.png');
+background-repeat:no-repeat ;
+background-size: auto;
+}
+#exit{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    left: 3%;
+    top: 30%;
+
+}
+#AchatPotion{
+    position: fixed;
+left: 43% ;
+top: 69%;
+color: blue;
+font-family: 'Trebuchet MS';
+}
+#AchatEpee{
+    position: fixed;
+left: 59% ;
+top: 69%;
+color: blue;
+font-family: 'Trebuchet MS';
+}
+#AchatArmure{
+    position: fixed;
+left: 59% ;
+top: 39%;
+color: blue;
+font-family: 'Trebuchet MS';
+}
+#AchatBijou{
+    position: fixed;
+left: 43% ;
+top: 39%;
+color: blue;
+font-family: 'Trebuchet MS';
+}
+
+#potion{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+left: 43.8% ;
+top: 64.7%;
+}
+#epee{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+left: 60% ;
+top: 64.7%;
+}
+#armure{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    left: 59.8% ;
+    top: 34.8%;
+}
+#Bijou{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    left: 43.8% ;
+    top: 34.7%;
+}
+#accueil{
+    font-family: 'Trebuchet MS';
+    color: white;
+}
+#pageDemmarage{
+    font-family: 'Trebuchet MS';
+    color: white;
+}

@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Marchand</title>
+    <link rel="stylesheet" href="style-marchand.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a id="accueil" href="accueil.html">accueil</a>
+            </li>
+            <li>
+                <a id="pageDemarrage" href="pageDemarrage.html">Page de démarrage</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+    <button id="AchatPotion" type="button" onclick="AchatPotion(); return false;" class="btn btn-light" >ACHETER</button>
+    <button id="AchatEpee" type="button" onclick="AchatEpee(); return false;" class="btn btn-light" >ACHETER</button>
+    <button id="AchatArmure" type="button" onclick="AchatArmure(); return false;" class="btn btn-light" >ACHETER</button>
+    <button id="AchatBijou" type="button" onclick="AchatBijou(); return false;" class="btn btn-light" >ACHETER</button>
+    </div> 
+    <div>
+        <img src="icones/potion-d'amour.png" id="potion">
+        <img src="icones/epee.png" id="epee">
+        <img src="icones/armure.png" id="armure">
+        <img src="icones/bijou.png" id="Bijou">
+        <a href="accueil.html">
+        <img src="icones/exit.png" id="exit">
+        </a>
+    </div>
 </body>
 </html>
