@@ -1,72 +1,51 @@
 body {
-background-image: url('background/image.png');
-background-repeat:no-repeat ;
-background-size: auto;
+    background-image: url('background/image.png');
+    background-repeat:no-repeat ;
+    background-size: auto;
 }
 #exit{
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    left: 3%;
-    top: 30%;
-
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        left: 3%;
+        top: 30%;
+    
 }
-#AchatPotion{
-    position: fixed;
-left: 43% ;
-top: 69%;
-color: blue;
-font-family: 'Trebuchet MS';
+ #button{
+    background-color: greenyellow;
+    color: blue;
+    font-family: 'Trebuchet MS';
 }
-#AchatEpee{
-    position: fixed;
-left: 59% ;
-top: 69%;
-color: blue;
-font-family: 'Trebuchet MS';
+#button:hover{
+    animation: pulse 1s;
 }
-#AchatArmure{
-    position: fixed;
-left: 59% ;
-top: 39%;
-color: blue;
-font-family: 'Trebuchet MS';
-}
-#AchatBijou{
-    position: fixed;
-left: 43% ;
-top: 39%;
-color: blue;
-font-family: 'Trebuchet MS';
-}
-
 #potion{
     width: 40px;
     height: 40px;
     position: fixed;
-left: 43.8% ;
-top: 64.7%;
+    left: 100px ;
+    top: 607px;
 }
 #epee{
     width: 40px;
     height: 40px;
     position: fixed;
-left: 60% ;
-top: 64.7%;
+    left: 100px ;
+    top: 654px;
 }
 #armure{
     width: 40px;
     height: 40px;
     position: fixed;
-    left: 59.8% ;
-    top: 34.8%;
+    left: 100px ;
+    top: 701px;
 }
 #Bijou{
     width: 40px;
     height: 40px;
     position: fixed;
-    left: 43.8% ;
-    top: 34.7%;
+    left: 100px ;
+    top: 750px;
 }
 #accueil{
     font-family: 'Trebuchet MS';
@@ -75,4 +54,22 @@ top: 64.7%;
 #pageDemmarage{
     font-family: 'Trebuchet MS';
     color: white;
+}
+#table{
+    position: fixed;
+    top: 60%;
+}
+tr{
+    background-color : ivory;
+        
+}
+    
+    
+#table img {
+    width: 40px;
+}
+    
+#table th,
+#table td {
+    text-align: center;
 }

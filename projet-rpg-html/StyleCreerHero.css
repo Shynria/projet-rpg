@@ -1,7 +1,7 @@
 body {
     background-image: url("https://wallpapercrafter.com/desktop/132977-Hytale-RPG-video-games-video-game-art.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-color: black;
 }
 
@@ -31,19 +31,21 @@ div h2 {
     line-height: 2;
 }
 
-section div {
-    top: 700px;
-    position: sticky;
-    background-color: currentColor;
-    border: 1px solid currentColor;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 10px;
+div a {
+    bottom: 10px;
 }
 
 section {
-    padding: 25%;
+    position: sticky;
+    background-color: transparent;
+    padding-top: 50px;
+    padding-right: 100px;
 }
 
+
+label {
+    font-style: normal;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+}

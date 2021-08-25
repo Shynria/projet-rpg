@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu</title>
 
     <link rel="stylesheet" href="StyleAccueil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -18,6 +18,7 @@
     </header>
 
     <section>
+        
         <img src="icones/epee (1).png" alt="Partir en expédition" width="50px" height="50px">
         <p>
             <a href="marchand.html">
@@ -25,12 +26,31 @@
             </a>
         </p>
         <p>
-            <img src="icones/auberge.png" alt="auberge" width="70px" height="70px">
+            <a href="#taverne">
+            <img src="icones/auberge.png" alt="auberge" width="70px" height="70px"></a>
         </p>
         <p>
-            <img src="icones/tent.png" alt="tente" width="100px" height="100px">
+            <a href="#tente">
+            <img src="icones/tent.png" alt="tente" width="100px" height="100px"></a>
         </p>
-        
+
+        <div  class="modal" id="taverne">
+            <div class="modal_content">
+                <h2>Vous passez une nuit douce et chalereuse à l'auberge</h2>
+                <img src="image/tavern.jpg" alt="taverne" width="700px">
+                <p>Vous regagnez X PV</p>
+                <a href="#1" class="modal_close">&times;</a>
+            </div>
+        </div>
+
+        <div  class="modal"id="tente">
+            <div class="modal_content">
+                <h2>Vous passez une nuit paisible à vous reposer</h2>
+                <img src="image/camp_fire.jpg" alt="camp_fire" width="700px">
+                <p>Vous regagnez X PV</p>
+                <a href="#2" class="modal_close">&times;</a>
+            </div>
+        </div>
     </section>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'un Héro</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="StyleCreerHero.css">
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Bienvenue dans le monde de Golarion</h1>
+        </div>
+
+        <div>
+            <h2>Créez votre Héro !</h2>
+        </div>
+    </header>
+
+    <section>
+        <div class="col-6">
+            <label for="nomHero" class="form-label">Nom du Héro : </label>
+            <input type="text" class="form-control" id="nomHero" placeholder="Nom du Héro">
+        </div>
+
+        <div>
+            <label for="statHero" class="form-label">Stats de votre Héro : 10 points de compétences à appliquer</label>
+        </div>
+        
+        <div class="col-6">
+            <label for="statAtk" class="form-label">Stats d'attaque : </label>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="statAtk">
+                <button type="button" class="btn btn-light">1</button>
+                <button type="button" class="btn btn-light">2</button>
+                <button type="button" class="btn btn-light">3</button>
+                <button type="button" class="btn btn-light">4</button>
+                <button type="button" class="btn btn-light">5</button>
+                <button type="button" class="btn btn-light">6</button>
+                <button type="button" class="btn btn-light">7</button>
+                <button type="button" class="btn btn-light">8</button>
+                <button type="button" class="btn btn-light">9</button>
+                <button type="button" class="btn btn-light">10</button>
+            </div>
+        </div> 
+
+        <div class="col-6">
+            <label for="statDef" class="form-label">Stats de défense : </label>
+            <input type="range" class="form-range" min="0" max="10" id="statDef">
+        </div>
+
+        <div class="col-6">
+            <label for="statAgi" class="form-label">Stats d'agilité : </label>
+            <input type="range" class="form-range" min="0" max="10" id="statAgi">
+        </div>
+
+        <div class="col-6">
+            <label for="statVit" class="form-label">Stats de vitalité : </label>
+            <input type="range" class="form-range" min="0" max="10" id="statVit">
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="btn btn-primary" href="pageDemarrage.html" type="button">Retour</a>
+        </div>
+    </section>
+
+</body>
+
+</html>

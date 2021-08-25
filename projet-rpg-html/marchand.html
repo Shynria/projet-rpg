@@ -7,7 +7,8 @@
     <title>Marchand</title>
     <link rel="stylesheet" href="style-marchand.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,20 +22,47 @@
             </li>
         </ul>
     </nav>
-    <div>
-    <button id="AchatPotion" type="button" onclick="AchatPotion(); return false;" class="btn btn-light" >ACHETER</button>
-    <button id="AchatEpee" type="button" onclick="AchatEpee(); return false;" class="btn btn-light" >ACHETER</button>
-    <button id="AchatArmure" type="button" onclick="AchatArmure(); return false;" class="btn btn-light" >ACHETER</button>
-    <button id="AchatBijou" type="button" onclick="AchatBijou(); return false;" class="btn btn-light" >ACHETER</button>
-    </div> 
-    <div>
-        <img src="icones/potion-d'amour.png" id="potion">
-        <img src="icones/epee.png" id="epee">
-        <img src="icones/armure.png" id="armure">
-        <img src="icones/bijou.png" id="Bijou">
-        <a href="accueil.html">
-        <img src="icones/exit.png" id="exit">
-        </a>
+        <table style="margin-left: 10px;" id="table" class="table table-bordered border-primary">
+            <thead>
+              <tr>
+                <th scope="col">Icone</th>
+                <th scope="col">Type</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><img src="icones/potion-d'amour.png"></th>
+                <td>Potion</td>
+                <td>+10HP</td>
+                <td>5G</td>
+                <td><button id="button">ACHETER</button></td>
+              </tr>
+              <tr>
+                <th scope="row"><img src="icones/epee.png"></th>
+                <td>Epée</td>
+                <td>+10ATK</td>
+                <td>7G</td>
+                <td><button id="button">ACHETER</button></td>
+              </tr>
+              <tr>
+                <th scope="row"><img src="icones/armure.png" ></th>
+                <td>Armure</td>
+                <td>+10DEF</td>
+                <td>10G</td>
+                <td><button id="button">ACHETER</button></td>
+              </tr>
+              <tr>
+                  <td><img src="icones/bijou.png" ></td>
+                  <td>Bijou</td>
+                  <td>+5AGI,+5ATK</td>
+                  <td>15G</td>
+                  <td><button id="button"> ACHETER</button></td>
+              </tr>
+            </tbody>
+          </table>
     </div>
 </body>
 </html>
