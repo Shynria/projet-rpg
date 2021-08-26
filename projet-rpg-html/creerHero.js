@@ -1,6 +1,15 @@
 function validerCreationHero() {
- let ptAtk = document.querySelector('input [type="checkbox atk"]').value;
- console.log(ptAtk);
+    let defense = document.querySelector('[name="defense"]:checked').value;
+
+
+
+ let tableAtk = document.querySelectorAll('id="statAtk"');
+ for (let a of tableAtk){
+     if ('input [type="checkbox"]' == true){
+        console.log(a);
+    }
+ }
+
 }
 
 // function sauvegarderHero(Hero){
