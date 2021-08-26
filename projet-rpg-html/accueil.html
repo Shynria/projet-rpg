@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="StyleAccueil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script defer src="son.js"></script>
 </head>
 
 <body>
@@ -51,6 +52,22 @@
                 <a href="#2" class="modal_close">&times;</a>
             </div>
         </div>
+
+        <div id="sound">
+            <img src="icones/pause.png" id="pause" alt="pause" width="=25px" height="25px">
+            <img src="icones/play-button-arrowhead.png" id="play" alt="play" width="=25px" height="25px" hidden="true">
+            <img src="icones/mute.png" alt="sound-off" id="sound_off" width="=25px" height="25px">
+            <img src="icones/speaker-filled-audio-tool.png" id="sound_on" alt="sound-on" width="=30px" height="30px" hidden="true">
+            
+            <audio controls src="sounds/accueil_music.mp3" id="accueil" autoplay="true" loop="true" hidden="true"></audio>
+            <audio controls src="sounds/around_the_fire.mp3" id="sound_camp_fire" loop="true" ></audio>
+            <audio controls src="sounds/skyrim_tavern.mp3" id="sound_taverne" loop="true" ></audio>
+
+            <script>
+                document.querySelector('audio').volume = 0.03;
+            </script>
+        </div>
+        
     </section>
 </body>
 </html>

@@ -31,15 +31,33 @@ div h2 {
     line-height: 2;
 }
 
-div a {
-    bottom: 10px;
+div input[type="text"] {
+    width: 75%;
+}
+
+
+/* section {
+    padding-bottom: 200px;
+} */
+
+section div#boutton {
+    margin-top: 100px;
+    /* top: 700px; */
+    /* position: fixed;
+    left: 50%; */
+
+    /* transform: translateX(-50%); */
+    background-color: currentColor;
+    border: 1px solid currentColor;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
 }
 
 section {
-    position: sticky;
-    background-color: transparent;
     padding-top: 50px;
-    padding-right: 100px;
 }
 
 
@@ -48,4 +66,9 @@ label {
     color: black;
     font-size: large;
     font-weight: bold;
+}
+
+div.btn-group {
+    background-color: white;
+    opacity: 0.6;
 }

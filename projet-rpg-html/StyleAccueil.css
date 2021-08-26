@@ -75,3 +75,9 @@ h1 {
     visibility: visible;
     opacity: 1;
 }
+
+div[id="sound"] {
+    position: absolute;
+    top: 960px;
+    left: 1440px;
+}
