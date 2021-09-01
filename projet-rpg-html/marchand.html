@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script defer src="marchand.js"></script>
 </head>
 
 <body>
@@ -22,47 +23,69 @@
             </li>
         </ul>
     </nav>
-        <table style="margin-left: 10px;" id="table" class="table table-bordered border-primary">
-            <thead>
+    <div>
+      <a href="accueil.html"><img id="exit" src="icones/exit.png" ></a>
+      <button class="btn"><img id="buy" src="icones/buy.png"></button>
+    </div> 
+
+    <div id="div"></div>
+    <div>
+      <table id="tableGold" class="table table-bordered border-primary">
+        <th>Gold</th>
+          <tr>
+            <td>100</td>
+          </tr>
+      </table>
+    </div>
+        <table id="tableAchat"  style="visibility: hidden"  style="margin-left: 10px;" id="table" class="table table-bordered border-primary">
+            <thead style="text-align: center;">
               <tr>
                 <th scope="col">Icone</th>
-                <th scope="col">Type</th>
+                <th scope="col">Nom</th>
                 <th scope="col">Bonus</th>
-                <th scope="col">Prix</th>
+                <th scope="col">Prix (G)</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody style="text-align: center;">
               <tr>
-                <th scope="row"><img src="icones/potion-d'amour.png"></th>
-                <td>Potion</td>
+                <th scope="row"><img width="40px" height="40px" src="icones/potion-d'amour.png"></th>
+                <td>Potion de soin</td>
                 <td>+10HP</td>
-                <td>5G</td>
-                <td><button id="button">ACHETER</button></td>
+                <td id="prixPotion">5</td>
+                <td><button class="button" onclick="achatPotion('Potion de soin');">ACHETER</button>
+                  <button class="comptMinus">-</button>
+                  <button class="comptPlus">+</button>
+                  <button id="compt">0</button></td>
               </tr>
-              <tr>
-                <th scope="row"><img src="icones/epee.png"></th>
-                <td>Epée</td>
+              <tr id="itemEpee" >
+                <th scope="row"><img width="40px" height="40px" src="icones/epee.png"></th>
+                <td>Epée blanche</td>
                 <td>+10ATK</td>
-                <td>7G</td>
-                <td><button id="button">ACHETER</button></td>
+                <td>7</td>
+                <td><button class="button" id="buttonEpee" onclick="achatEpee('Epée blanche');">ACHETER</button></td>
               </tr>
-              <tr>
-                <th scope="row"><img src="icones/armure.png" ></th>
-                <td>Armure</td>
+              <tr id="itemArmure">
+                <th scope="row"><img width="40px" height="40px" src="icones/armure.png" ></th>
+                <td>Côte de maille</td>
                 <td>+10DEF</td>
-                <td>10G</td>
-                <td><button id="button">ACHETER</button></td>
+                <td>10</td>
+                <td><button class="button" id="buttonArmure" onclick="achatArmure('Côte de maille');">ACHETER</button></td>
               </tr>
-              <tr>
-                  <td><img src="icones/bijou.png" ></td>
-                  <td>Bijou</td>
+              <tr id="itemBijou">
+                  <td><img width="40px" height="40px" src="icones/bijou.png" ></td>
+                  <td>Collier magique</td>
                   <td>+5AGI,+5ATK</td>
-                  <td>15G</td>
-                  <td><button id="button"> ACHETER</button></td>
+                  <td>15</td>
+                  <td><button class="button" id="buttonBijou" onclick="achatBijou('Collier magique');"> ACHETER</button></td>
               </tr>
             </tbody>
           </table>
     </div>
+    <div>
+      <audio controls src="sounds/shop-doorbell.mp3" autoplay="true" hidden="true"></audio>
+      <script>document.querySelector('audio').volume=0.0</script>
+    </div>
+
 </body>
 </html>

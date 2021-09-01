@@ -1,14 +1,17 @@
 function validerCreationHero() {
-    let defense = document.querySelector('[name="defense"]:checked').value;
+    let atk = document.querySelector('[name="attaque"]:checked').value;
+    let def = document.querySelector('[name="defense"]:checked').value;
+    let agi = document.querySelector('[name="agilite"]:checked').value;
+    let vit = document.querySelector('[name="vitalite"]:checked').value;
 
+    console.log(atk, def, agi, vit);
+    console.log(parseInt(atk) + parseInt(def) + parseInt(agi) + parseInt(vit));
 
-
- let tableAtk = document.querySelectorAll('id="statAtk"');
- for (let a of tableAtk){
-     if ('input [type="checkbox"]' == true){
-        console.log(a);
+    if (parseInt(atk) + parseInt(def) + parseInt(agi) + parseInt(vit) == 10){
+        console.log("attribution valide");
+    } else {
+        console.log("Veuillez recommencer l'attribution des points de compétences");
     }
- }
 
 }
 
