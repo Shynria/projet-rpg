@@ -1,5 +1,5 @@
 body{
-    background-image: url("assets/background/accueil.jpg");
+    background-image: url("../../assets/background/accueil.jpg");
     background-repeat: no-repeat;
     background-position-y : 120px;
     background-color: black;
@@ -30,7 +30,8 @@ img[alt="tente"]{
     animation: pulse 2s infinite;
 }
 header p{
-    margin-left: 1350px;
+/*     margin-left: 1350px; */
+    float: right;
 }
 
 h1 {

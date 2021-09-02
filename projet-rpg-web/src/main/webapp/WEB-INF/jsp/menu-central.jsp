@@ -70,7 +70,7 @@
 			loop="true"></audio>
 
 		<script>
-			document.querySelector('audio').volume = 0.03;
+			document.querySelector('audio').volume = 0.1;
 		</script>
 	</div>
 

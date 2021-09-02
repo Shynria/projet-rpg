@@ -55,7 +55,7 @@ tr{
     animation: pulse 1s;
 }
 #div{
-    position: static;
+    position: fixed;
     margin-top: 8%;
     margin-left: 1%;
     font-family: 'Trebuchet MS';
