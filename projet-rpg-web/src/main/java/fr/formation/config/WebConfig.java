@@ -26,14 +26,8 @@ public class WebConfig implements WebMvcConfigurer{
 
 		return viewResolver;
 	}
-	public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
-		// TODO Auto-generated method stub
-		WebMvcConfigurer.super.addReturnValueHandlers(handlers);
-	}
 	
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-		registry.addResourceHandler("/images/**").addResourceLocations("/images/");
 		registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
 		}
 

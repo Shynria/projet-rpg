@@ -58,11 +58,16 @@ public class Hero {
 	@OneToOne(mappedBy = "hero")
 	private Inventaire inventaire;
 	
-	@Column(name = "HERO_ARME")
+	@OneToOne
+	@JoinColumn(name = "HERO_ARME")
 	private Objet arme;
-	@Column(name = "HERO_ARMURE")
+	
+	@OneToOne
+	@JoinColumn(name = "HERO_ARMURE")
 	private Objet armure;
-	@Column(name = "HERO_BIJOUX")
+	
+	@OneToOne
+	@JoinColumn(name = "HERO_BIJOUX")
 	private Objet bijoux;
 	
 	

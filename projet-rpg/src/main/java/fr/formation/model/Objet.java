@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -49,7 +50,14 @@ public class Objet {
 	private List<Inventaire> inventaire;
 
 	
+	@OneToOne(mappedBy= "arme")
+	private Hero heroArme;
 	
+	@OneToOne(mappedBy= "armure")
+	private Hero heroArmure;
+	
+	@OneToOne(mappedBy= "bijoux")
+	private Hero heroBijoux;
 	
 	
 	public int getPvRendu() {

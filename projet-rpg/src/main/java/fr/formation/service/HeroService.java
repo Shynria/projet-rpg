@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,7 +74,7 @@ public class HeroService {
 			System.out.println(hero.getBijoux());
 		}
 	}
-	
+	@Transactional
 	public void equiperObjet() {
 		System.out.println("-- Veuillez saisir le nom de votre hero : --");
 		Scanner clavier = new Scanner(System.in);

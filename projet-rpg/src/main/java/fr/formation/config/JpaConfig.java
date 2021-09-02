@@ -45,7 +45,7 @@ public class JpaConfig {
 			
 			// configurer emf
 			emf.setDataSource(dataSource);
-			emf.setPackagesToScan("rpg.model");
+			emf.setPackagesToScan("fr.formation.model");
 			emf.setJpaVendorAdapter(vendorAdapter);
 			
 			// configurer les properties liés au vendor, ici hibernate

@@ -28,7 +28,8 @@ public class ApplicationJpaSpring {
 		//srvHero.createHero();
 		//srvObjet.createObjet(new Objet("armure", "armure en cuir", "agi", 2, 1, new BigDecimal(3)));
 		//srvInventaire.ajouterObjetDansInventaire(1, 3);
-		srvInventaire.voirMonInventaire();
+		//srvInventaire.voirMonInventaire();
+		srvHero.equiperObjet();
 	}
 
 }
