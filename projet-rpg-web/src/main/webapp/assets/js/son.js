@@ -32,7 +32,7 @@ document.querySelector('a[href="#tente"]').addEventListener('click', () => {
     document.getElementById('accueil').pause();
 })
 
-document.querySelector('#close_tente').addEventListener('click', () => {
+document.querySelector('a[href="#2"]').addEventListener('click', () => {
     document.getElementById('sound_camp_fire').pause();
     document.getElementById('sound_camp_fire').currentTime=0;
     document.getElementById('accueil').play();
@@ -44,7 +44,7 @@ document.querySelector('a[href="#taverne"]').addEventListener('click', () => {
     document.getElementById('sound_taverne').volume=0.2;
     document.getElementById('accueil').pause();
 })
-document.querySelector('#close_taverne').addEventListener('click', () => {
+document.querySelector('a[href="#1"]').addEventListener('click', () => {
     document.getElementById('sound_taverne').pause();
     document.getElementById('sound_taverne').currentTime=0;
     document.getElementById('accueil').play();

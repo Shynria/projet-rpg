@@ -9,15 +9,12 @@ function validerCreationHero() {
 	    console.log(parseInt(atk) + parseInt(def) + parseInt(agi) + parseInt(vit));
 
 	    if (parseInt(atk) + parseInt(def) + parseInt(agi) + parseInt(vit) == 10){
-	        console.log("attribution valide");
+	    	document.querySelector('#btn-valider').innerHTML= 'href="menu-demarrer"';
 	    } else {
-	        console.log("Veuillez recommencer l'attribution des points de compétences");
+	        document.querySelector('#btn-valider').innerHTML= 'disabled';
 	    }
 	});
 	
-    
-
-}
 
 // function sauvegarderHero(Hero){
 //     let heroes = JSON.parse(localStorage.getItem('heroes'));
