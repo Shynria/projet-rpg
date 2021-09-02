@@ -31,8 +31,8 @@
 
     <section>
         <div class="d-grid gap-2 col-4 mx-auto">
-            <a class="btn btn-primary" href="creerHero.html" type="button" >Créer un Hero</a>
-            <a class="btn btn-success" href="chargerHero.html" type="button">Charger un Hero</a> 
+            <a class="btn btn-primary" href="creer-hero" type="button" >Créer un Hero</a>
+            <a class="btn btn-success" href="charger-hero" type="button">Charger un Hero</a> 
         </div>
 
     </section>

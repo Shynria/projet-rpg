@@ -1,12 +1,12 @@
 body{
-    background-image: url("background/accueil.jpg");
+    background-image: url("assets/background/accueil.jpg");
     background-repeat: no-repeat;
     background-position-y : 120px;
     background-color: black;
     color: white;
 }
 
-img[alt="Partir en expÃ©dition"]{
+img[alt="Partir en expédition"]{
     margin-top: 150px;
     margin-left: 760px;
     animation: pulse 2s infinite;
