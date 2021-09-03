@@ -45,29 +45,33 @@
 				<div
 					class="card text-center border-secondary text-dark bg-light mb-3">
 					<div class="card-body text-dark">
-						<h5 class="card-title" value="${ hero.nom }">${ hero.nom }</h5>
+						<div class="card-header">
+							<h5 value="${ hero.nom }">${ hero.nom }</h5>
+						</div>
 						<p class="card-text" value="${ hero.getNiveau() }">Level: ${ hero.getNiveau() }</p>
-						<p class="card-text" value="${ hero.getXp() }">
+						<c:forEach items="${ levels }" var="level">
+						<c:if test="${ level.id == hero.niveau }">
+							<p class="card-text" value="${ hero.getXp() }">
 							<div class="progress">
-								<div class="progress-bar bg-primary" role="progressbar"
-								style="width: ${ (hero.xp / level.pointXp) * 100 }%;">
-								XP: ${ hero.getXp() } / ${ level.getPointXp() }
-								</div>
+								<div class="progress-bar bg-primary fw-bold" role="progressbar"
+									style="width: ${ (hero.xp / level.pointXP) * 100 }%;">
+									</div>
+								<span>XP: ${ hero.getXp() } / ${ level.pointXP }</span>
 							</div>
-						</p>
-						
-						
+							</p>
+						</c:if>
+						</c:forEach>
 						<p class="card-text" value="${ hero.getPvActuel() }">
-							<div class="progress">
-								<div class="progress-bar bg-danger" role="progressbar"
+						<div class="progress">
+							<div class="progress-bar bg-danger fw-bold" role="progressbar"
 								style="width: ${ (hero.pvActuel / hero.pvMax) * 100 }%;">
-								PV: ${ hero.getPvActuel() } / ${ hero.getPvMax() }
 								</div>
-							</div>
+							<span>PV: ${ hero.getPvActuel() } / ${ hero.getPvMax() }</span>
+						</div>
 						</p>
 						<p class="card-text" value="${ hero.getArgent() }">argent: ${ hero.getArgent() }</p>
 
-						<div class="d-grid gap-2 col-4 mx-auto">
+						<div class="d-grid gap-2 d-md-block">
 							<a href="choisir-hero?id=${ hero.id }" class="btn btn-success">Choisir</a>
 							<a href="supprimer-hero?id=${ hero.id }" class="btn btn-danger">Supprimer</a>
 						</div>

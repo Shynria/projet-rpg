@@ -22,7 +22,7 @@
 	<section> <img src="assets/icones/epee (1).png"
 		alt="Partir en expédition" width="50px" height="50px">
 	<p>
-		<a href="assets/marchand.html"> <img src="assets/icones/trader.png" alt="trader"
+		<a href="marchand"> <img src="assets/icones/trader.png" alt="trader"
 			width="100px" height="100px">
 		</a>
 	</p>

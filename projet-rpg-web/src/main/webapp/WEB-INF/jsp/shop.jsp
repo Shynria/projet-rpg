@@ -47,7 +47,7 @@
 				<td>${objet.changement } </td>
 				<td>${objet.attribut } </td>
 				<td>${objet.prix }</td>
-				<td><button class="button">ACHETER</button></td>
+				<td><a href="achat?id=${objet.id }" class="btn btn-danger">ACHETER</a></td>
 			</tr>
 	
 			</c:forEach>

@@ -1,5 +1,7 @@
 package fr.formation.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,15 +24,17 @@ public class ChargerHeroController {
 	@Autowired
 	private InstanceService sauvegarde;
 	
+	
+	
 	@GetMapping("/charger-hero")
 	public String chargerHero(Model model){
 		model.addAttribute("heros", daoHero.findAll());
-		
+		model.addAttribute("levels", daoLevel.findAll());
 		return "charger-hero";
 	}
 	
 	@GetMapping("/choisir-hero")
-	public String choisirHero(@RequestParam int id){
+	public String choisirHero(Model model, @RequestParam int id){
 		Hero monHeroAjouer = daoHero.findById(id).get();
 		sauvegarde.setMonHeroAJouer(monHeroAjouer);
 		return "redirect:/accueil";

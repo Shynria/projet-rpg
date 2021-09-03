@@ -1,8 +1,9 @@
 body{
     background-image: url("../../assets/background/accueil.jpg");
     background-repeat: no-repeat;
-    background-position-y : 120px;
+    padding-top: 120px;
     background-color: black;
+    background-size: cover;
     color: white;
 }
 
