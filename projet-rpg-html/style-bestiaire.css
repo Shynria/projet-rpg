@@ -1,0 +1,4 @@
+#image:focus {
+    animation: tada;
+    animation-duration: 0,5s ease-out;
+}

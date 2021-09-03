@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.dao.IHeroDaoJpaRepository;
+import fr.formation.dao.ILevelDaoJpaRepository;
 import fr.formation.model.Hero;
 import fr.formation.service.InstanceService;
 
@@ -16,11 +17,15 @@ public class ChargerHeroController {
 	IHeroDaoJpaRepository daoHero;
 	
 	@Autowired
+	ILevelDaoJpaRepository daoLevel;
+	
+	@Autowired
 	private InstanceService sauvegarde;
 	
 	@GetMapping("/charger-hero")
 	public String chargerHero(Model model){
 		model.addAttribute("heros", daoHero.findAll());
+		
 		return "charger-hero";
 	}
 	
