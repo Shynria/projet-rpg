@@ -48,13 +48,20 @@
 						<h5 class="card-title" value="${ hero.nom }">${ hero.nom }</h5>
 						<p class="card-text" value="${ hero.getNiveau() }">Level: ${ hero.getNiveau() }</p>
 						<p class="card-text" value="${ hero.getXp() }">xp: ${ hero.getXp() }</p>
-						<p class="card-text" value="${ hero.getPvActuel() }">pv: ${ hero.getPvActuel() }
-							/ ${ hero.getPvMax() }</p>
+						<p class="card-text" value="${ hero.getPvActuel() }"> 
+						pv: ${ hero.getPvActuel() } / ${ hero.getPvMax() }
+							<div class="progress">
+  								<div class="progress-bar bg-danger" role="progressbar" 
+  								style="width: ${ hero.getPvActuel() } / ${ hero.getPvMax() };" aria-valuenow="${ hero.getPvActuel() }" aria-valuemin="0" 
+  								aria-valuemax="${ hero.getPvMax() }">${ hero.getPvActuel() } / ${ hero.getPvMax() }</div>
+							</div> 
+						</p>
 						<p class="card-text" value="${ hero.getArgent() }">argent: ${ hero.getArgent() }</p>
 
 
 						<div class="d-grid gap-2 col-4 mx-auto">
 							<a href="choisir-hero?id=${ hero.id }" class="btn btn-success">Choisir</a>
+							<a href="supprimer-hero?id=${ hero.id }" class="btn btn-danger">Supprimer</a>
 						</div>
 					</div>
 				</div>

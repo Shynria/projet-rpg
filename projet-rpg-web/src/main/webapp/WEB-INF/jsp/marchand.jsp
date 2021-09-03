@@ -99,9 +99,7 @@
 	<div>
 		<audio controls src="assets/sounds/shop-doorbell.mp3" autoplay="true"
 			hidden="true"></audio>
-		<script>
-			document.querySelector('audio').volume = 0.9
-		</script>
+		<script>document.querySelector('audio').volume=0.9</script>
 	</div>
 
 </body>
