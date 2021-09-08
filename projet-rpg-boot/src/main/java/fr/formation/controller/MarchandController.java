@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +41,7 @@ public class MarchandController {
 	public String shop(Model model) {
 		System.out.println("JE ME DEMANDE ?");
 		Hero monHero = sauvegarde.getMonHeroAJouer();
+		daoHero.save(monHero);
 		List<Objet> listByLevel = daoObjet.findAllByLevel(1);
 		List<Objet> listRandom = new ArrayList<>();
 		Random random = new Random();
@@ -54,22 +57,30 @@ public class MarchandController {
 
 		return "shop";
 	}
+	@Transactional
 	@GetMapping("/achat")
 	public String achat(@RequestParam int id) {
-
+			System.out.println("debut");
 		Hero monHero = sauvegarde.getMonHeroAJouer();
+		System.out.println("hero chargé");
 		List<Objet> objets = monHero.getInventaire().getObjets();
+		System.out.println("charge linvenaire du hero");
 		Objet objetAchete = daoObjet.findById(id).get();
-
+System.out.println("trouve lobjet a acheter");
 		objets.add(objetAchete);
 		System.out.println("objet attech� a la liset");
 		monHero.getInventaire().setObjets(objets);
 		System.out.println("liste attach� a linventaire");
+		 int comparaison =monHero.getArgent().compareTo(objetAchete.getPrix());
+		 if (comparaison>0){
 		monHero.setArgent(monHero.getArgent().subtract(objetAchete.getPrix()));
 		System.out.println("retrait des sous");
 		daoInventaire.save(monHero.getInventaire());
 		daoHero.save(monHero);
 		return "redirect:/shop";
+		 }else{ 
+			 return "redirect:/marchand";
+		 }
 
 	}
 

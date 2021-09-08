@@ -1,5 +1,8 @@
 package fr.formation.controller;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,8 +35,10 @@ public class ChargerHeroController {
 	}
 	
 	@GetMapping("/choisir-hero")
+	@Transactional
 	public String choisirHero(Model model, @RequestParam int id){
 		Hero monHeroAjouer = daoHero.findById(id).get();
+		Hibernate.initialize(monHeroAjouer.getInventaire().getObjets());  //CHARGE L'INVENTAIRE ET LES OBJETS
 		sauvegarde.setMonHeroAJouer(monHeroAjouer);
 		return "redirect:/accueil";
 	}

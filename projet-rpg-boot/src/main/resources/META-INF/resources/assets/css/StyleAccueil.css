@@ -1,14 +1,13 @@
 body{
     background-image: url("../../assets/background/accueil.jpg");
     background-repeat: no-repeat;
-    padding-top: 120px;
     background-color: black;
-    background-size: cover;
     color: white;
+    background-position-y: 170px;
 }
 
-img[alt="Partir en expédition"]{
-    margin-top: 150px;
+img[alt="Partir en expedition"]{
+    margin-top: 190px;
     margin-left: 760px;
     animation: pulse 2s infinite;
 }
@@ -36,7 +35,7 @@ header p{
 }
 
 h1 {
-    text-indent: 430px;
+    text-align: center;
     border-top: solid 2px  gray;
 }
 

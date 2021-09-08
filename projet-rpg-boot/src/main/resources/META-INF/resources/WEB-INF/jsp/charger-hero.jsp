@@ -34,7 +34,7 @@
 	</div>
 
 	<div>
-		<h2>Choisissez votre Héro !</h2>
+		<h2>Choisissez votre Hero !</h2>
 	</div>
 	</header>
 
@@ -73,7 +73,6 @@
 
 						<div class="d-grid gap-2 d-md-block">
 							<a href="choisir-hero?id=${ hero.id }" class="btn btn-success">Choisir</a>
-							<a href="supprimer-hero?id=${ hero.id }" class="btn btn-danger">Supprimer</a>
 						</div>
 					</div>
 				</div>

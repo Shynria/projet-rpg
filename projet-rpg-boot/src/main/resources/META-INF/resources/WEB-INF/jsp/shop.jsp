@@ -53,5 +53,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<div>
+<a style="margin-left: 50%;" href="marchand" class="btn btn-danger">RETOUR</a>
 </body>
 </html>

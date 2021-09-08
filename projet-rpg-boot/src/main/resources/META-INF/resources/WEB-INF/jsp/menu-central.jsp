@@ -12,15 +12,15 @@
 </head>
 <body>
 	<header>
-	<p>
-		<img src="assets/icones/coins.png" alt="coins" width="30px" height="30px">Gold
-		<img src="assets/icones/hearts.png" alt="heart" width="30px" height="30px">PV
-	</p>
-	<h1>Bienvenue dans le monde de Golarion !</h1>
+		<p>
+			<h1>${hero.getNom()}, bienvenue dans le monde de Golarion !</h1>
+			${hero.getArgent()} Gold<img src="assets/icones/coins.png" alt="coins" width="30px" height="30px">
+			${hero.getPvActuel()}/${hero.getPvMax()}<img src="assets/icones/hearts.png" alt="heart" width="30px" height="30px">
+		</p>
 	</header>
 
-	<section> <img src="assets/icones/epee (1).png"
-		alt="Partir en expédition" width="50px" height="50px">
+	<section> <a href="#expedition"><img src="assets/icones/epee (1).png"
+		alt="Partir en expedition" width="50px" height="50px"></a>
 	<p>
 		<a href="marchand"> <img src="assets/icones/trader.png" alt="trader"
 			width="100px" height="100px">
@@ -37,7 +37,7 @@
 
 	<div class="modal" id="taverne">
 		<div class="modal_content">
-			<h2>Vous passez une nuit douce et chalereuse à l'auberge</h2>
+			<h2>Vous passez une nuit douce et chalereuse ï¿½ l'auberge</h2>
 			<img src="assets/images/tavern.jpg" alt="taverne" width="700px">
 			<p>Vous regagnez X PV</p>
 			<a href="#1" class="modal_close">&times;</a>
@@ -46,16 +46,25 @@
 
 	<div class="modal" id="tente">
 		<div class="modal_content">
-			<h2>Vous passez une nuit paisible à vous reposer</h2>
+			<h2>Vous passez une nuit paisible ï¿½ vous reposer</h2>
 			<img src="assets/images/camp_fire.jpg" alt="camp_fire" width="700px">
 			<p>Vous regagnez X PV</p>
 			<a href="#2" class="modal_close">&times;</a>
 		</div>
 	</div>
 
+	<div class="modal" id="expedition">
+		<div class="modal_content">
+			<h2>Vous tombez sur un monstre ! C'est un </h2>
+			
+			<p>Vous perdez X PV</p>
+			<a href="#1" class="modal_close">&times;</a>
+		</div>
+	</div>
+
 	<div id="sound">
 		<img src="assets/icones/pause.png" id="pause" alt="pause" width="=25px"
-			height="25px"> <img src="icones/play-button-arrowhead.png"
+			height="25px"> <img src="assets/icones/play.png"
 			id="play" alt="play" width="=25px" height="25px" hidden="true">
 		<img src="assets/icones/mute.png" alt="sound-off" id="sound_off"
 			width="=25px" height="25px"> <img

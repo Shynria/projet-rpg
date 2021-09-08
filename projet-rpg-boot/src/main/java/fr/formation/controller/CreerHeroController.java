@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.formation.dao.IAttributDaoJpaRepository;
 import fr.formation.dao.IHeroDaoJpaRepository;
 import fr.formation.dao.IInventiaireDaoJpaRepository;
+import fr.formation.dao.IObjetDaoJpaRepository;
 import fr.formation.model.Attribut;
 import fr.formation.model.Hero;
 import fr.formation.model.Inventaire;
@@ -28,6 +29,9 @@ public class CreerHeroController {
 	
 	@Autowired
 	private IAttributDaoJpaRepository daoAttribut;
+
+	@Autowired
+	private IObjetDaoJpaRepository daoObjet;
 	
 	@Autowired
 	private InstanceService sauvegarde;
@@ -52,6 +56,7 @@ public class CreerHeroController {
 				monHero.setAttribut(monAttribut);
 				Inventaire monInventaire = new Inventaire();
 				monHero.setInventaire(monInventaire);
+				monInventaire.getObjets().add(daoObjet.findById(1).get());
 				daoAttribut.save(monAttribut);
 				daoInventaire.save(monInventaire);
 				daoHero.save(monHero);
