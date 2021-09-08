@@ -1,0 +1,90 @@
+body{
+    background-image: url("../../assets/background/image.png");
+    background-repeat:no-repeat ;
+    background-size: auto;
+}
+#exit{
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        left: 3%;
+        top: 30%;
+    
+}
+ .button{
+    background-color: white;
+    color: blue;
+    font-family: 'Trebuchet MS';
+}
+#button:hover{
+    animation: pulse 1s;
+    background-color: lightgreen;
+    transition: 1s ease-in-out;
+}
+nav a{
+  font-family: 'Trebuchet MS';
+    color: white;
+}
+
+#tableAchat{
+    position: fixed;
+    top: 60%;
+
+}
+tr{
+    background-color : ivory;
+
+
+}
+    
+    
+#table img {
+    width: 40px;
+ 
+
+}
+    
+#table th,
+#table td {
+    text-align: center;
+  
+
+}
+#exit:hover{
+    width: 40px;
+    animation: pulse 1s;
+}
+#div{
+    position: fixed;
+    margin-top: 8%;
+    margin-left: 1%;
+    font-family: 'Trebuchet MS';
+}
+#buy{
+    width: 40px;
+    }
+.btn{
+    margin-top: 10%;
+    margin-left: 17%;
+}
+
+.comptPlus,.comptMinus{
+    background-color: white;
+    color: blue;
+}
+.comptPlus:hover,.comptMinus:hover{
+    background-color: lightskyblue;
+    display: inline;
+    transition: ease-in-out 1s;
+    animation:pulse 1s ;
+}
+#compt{
+    color: blue;
+}
+#tableGold{
+    position: relative;
+    margin-left: 50%;
+    margin-bottom: 10%;
+    width: 50px;
+
+}

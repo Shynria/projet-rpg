@@ -1,0 +1,48 @@
+body {
+    background-image: url("https://wallpapercrafter.com/desktop/132977-Hytale-RPG-video-games-video-game-art.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
+
+body {
+    padding: 5px 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-image: url("https://media.istockphoto.com/photos/papyrus-parchment-texture-picture-id821337424?k=6&m=821337424&s=170667a&w=0&h=QmhNdb27V6zCkQRKBr7KTgUAs3Q6F6hbZsv24m9wtZ4=");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+	font-size: 36px;
+    padding-bottom: 10px;
+}
+
+div h1 {
+	font-size: 36px;
+	margin: 0px;
+    line-height: 2;
+}
+
+div h2 {
+	margin-left: 0px;
+	margin-right: 0px;
+    line-height: 2;
+}
+
+section div {
+    margin-top: 200px;
+    background-color: currentColor;
+    border: 1px solid currentColor;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+}
+
+section {
+    padding-top: 150px;
+}
+
