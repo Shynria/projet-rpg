@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="assets/css/StyleCreerHero.css">
 <script defer src="assets/js/creerHero.js"></script>
 
-<title>Cr�er un Hero</title>
+<title>Creer un Hero</title>
 </head>
 
 <body>
@@ -27,14 +27,14 @@
         </div>
 
         <div>
-            <h2>Cr�ez votre H�ro !</h2>
+            <h2>Creez votre Hero !</h2>
         </div>
     </header>
 
     <section>
         <form method="POST" class="was-validated">
             <div class="col-6">
-                <label for="nomHero" class="form-label" id="nomHero">Nom du H�ro : </label>
+                <label for="nomHero" class="form-label" id="nomHero">Nom du Hero : </label>
                 <input type="text" class="form-control" id="nomHero" aria-describedby="nomHero" name="nom" required >
 
                 <div class="valid-feedback">Nom valide</div>
@@ -86,7 +86,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statDef" class="form-label">Stats de d�fense : </label>
+                <label for="statDef" class="form-label">Stats de defense : </label>
             </div>
             <div class="btn-group Def required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">
@@ -125,7 +125,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statAgi" class="form-label">Stats d'agilit� : </label>
+                <label for="statAgi" class="form-label">Stats d'agilite : </label>
             </div>
             <div class="btn-group Agi required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">
@@ -164,7 +164,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statVit" class="form-label">Stats de vitalit� : </label>
+                <label for="statVit" class="form-label">Stats de vitalite : </label>
             </div>
             <div class="btn-group Vit required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">

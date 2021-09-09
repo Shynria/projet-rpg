@@ -21,7 +21,7 @@
 
 
 </head>
-<h1>Bienvenue dans le shop</h1>
+<h1>Menu de vente</h1>
 <body>
 
 	<header>
@@ -54,8 +54,8 @@
 				<td>${objet.nom}</td>
 				<td>${objet.changement } </td>
 				<td>${objet.attribut } </td>
-				<td>${objet.prix }</td>
-				<td><a href="achat?id=${objet.id }" class="btn btn-danger">ACHETER</a></td>
+				<td>${objet.prix.divide(2) }</td>
+				<td><a href="vente?id=${objet.id }" class="btn btn-danger">VENDRE</a></td>
 			</tr>
 	
 			</c:forEach>

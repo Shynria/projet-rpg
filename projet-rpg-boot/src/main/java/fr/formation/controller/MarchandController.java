@@ -1,5 +1,6 @@
 package fr.formation.controller;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -23,9 +24,8 @@ import fr.formation.service.InstanceService;
 public class MarchandController {
 	@Autowired
 	private IObjetDaoJpaRepository daoObjet;
-	
 	@Autowired
-	private InstanceService sauvegarde;
+	InstanceService sauvegarde;
 	
 	@Autowired
 	private IHeroDaoJpaRepository daoHero;
@@ -40,7 +40,6 @@ public class MarchandController {
 
 	@GetMapping("/shop")
 	public String shop(Model model) {
-		System.out.println("JE ME DEMANDE ?");
 		Hero monHero = sauvegarde.getMonHeroAJouer();
 		daoHero.save(monHero);
 		List<Objet> listByLevel = daoObjet.findAllByLevel(1);
@@ -61,21 +60,14 @@ public class MarchandController {
 	@Transactional
 	@GetMapping("/achat")
 	public String achat(@RequestParam int id) {
-			System.out.println("debut");
 		Hero monHero = sauvegarde.getMonHeroAJouer();
-		System.out.println("hero chargé");
 		List<Objet> objets = monHero.getInventaire().getObjets();
-		System.out.println("charge linvenaire du hero");
 		Objet objetAchete = daoObjet.findById(id).get();
-System.out.println("trouve lobjet a acheter");
 		objets.add(objetAchete);
-		System.out.println("objet attech� a la liset");
 		monHero.getInventaire().setObjets(objets);
-		System.out.println("liste attach� a linventaire");
 		 int comparaison =monHero.getArgent().compareTo(objetAchete.getPrix());
 		 if (comparaison>0){
 		monHero.setArgent(monHero.getArgent().subtract(objetAchete.getPrix()));
-		System.out.println("retrait des sous");
 		daoInventaire.save(monHero.getInventaire());
 		daoHero.save(monHero);
 		return "redirect:/shop";
@@ -84,5 +76,37 @@ System.out.println("trouve lobjet a acheter");
 		 }
 
 	}
+@GetMapping("/vendre")
+public String vendre(Model model){
+	System.out.println("1");
+Hero monHero = sauvegarde.getMonHeroAJouer();
+daoHero.save(monHero);
+model.addAttribute("objets", monHero.getInventaire().getObjets());
+	return "vendre";
+}
 
+@GetMapping("/vente")
+public String venteObjet(@RequestParam int id){
+	Hero monHero = sauvegarde.getMonHeroAJouer();
+	daoHero.save(monHero);
+	List<Objet> objets = monHero.getInventaire().getObjets();
+	Objet objetAVendre = null;
+
+	for (Objet o : objets) {
+		if (o.getId() == id) {
+			objetAVendre = o;
+			break;
+		}
+	}
+
+	if (objetAVendre != null) {
+		objets.remove(objetAVendre);
+		BigDecimal argentRendu = objetAVendre.getPrix().divide(new BigDecimal(2));
+		monHero.setArgent(monHero.getArgent().add(argentRendu));
+		daoInventaire.save(monHero.getInventaire());
+		daoHero.save(monHero);
+	}
+
+return "redirect:/vendre";
+}
 }

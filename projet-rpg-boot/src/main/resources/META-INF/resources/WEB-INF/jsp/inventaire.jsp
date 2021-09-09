@@ -18,7 +18,7 @@
 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-            <link rel="stylesheet" href="assets/css/style-bestiaire.css">
+            <link rel="stylesheet" href="assets/css/style-inventaire.css">
 
         </head>
 
@@ -93,25 +93,17 @@
                     </thead>
                     <tbody style="text-align:center;">
                         <tr>
-                            <td>${ hero.getArme() }</td>
-                            <td>${ hero.getArmure() }</td>
-                            <td>${ hero.getBijoux() }</td>
-                        </tr>
-                        <tr>
                             <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="" class="btn btn-danger">Retirer</a>
-                                </div>
+                                ${ hero.arme.nom }
+                                <a href="" class="btn btn-danger">Retirer</a>
                             </td>
                             <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="" class="btn btn-danger">Retirer</a>
-                                </div>
+                                ${ hero.armure.nom }
+                                <a href="" class="btn btn-danger">Retirer</a>
                             </td>
                             <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="" class="btn btn-danger">Retirer</a>
-                                </div>
+                                ${ hero.bijoux.nom }
+                                <a href="" class="btn btn-danger">Retirer</a>
                             </td>
                         </tr>
                     </tbody>
@@ -123,28 +115,44 @@
                 <table class="table table-striped">
                     <thead style="text-align:center;">
                         <tr>
+                            <th></th>
                             <th>Nom</th>
                             <th>Type</th>
                             <th>Level</th>
-                            <th>Prix</th>
                             <th>Attribut modifie</th>
                             <th>Effets</th>
                             <th>PV rendu</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody style="text-align:center;">
                         <c:forEach items="${ objets }" var="objet">
                             <tr>
+                                <c:if test="${objet.type.equals('potion')}"><td><img src="assets/icones/potion-d'amour.png" width="40px"/> </td></c:if>
+			                    <c:if test="${objet.type.equals('arme')}"><td><img src="assets/icones/epee.png" width="40px"/> </td></c:if>
+			                    <c:if test="${objet.type.equals('armure')}"><td><img src="assets/icones/armure.png" width="40px"/> </td></c:if>
+			                    <c:if test="${objet.type.equals('bijoux')}"><td><img src="assets/icones/bijou.png" width="40px"/> </td></c:if>
                                 <td>${objet.nom }</td>
                                 <td>${objet.type }</td>
                                 <td>${objet.level }</td>
-                                <td>${objet.prix }</td>
                                 <td>${objet.attribut }</td>
                                 <td>${objet.changement }</td>
                                 <td>${objet.pvRendu }</td>
+                                <td>
+                                    <c:if test="${ objet.type.equals('arme') || objet.type.equals('armure') || objet.type.equals('bijoux') }">
+                                        <a href="equiper-objet?id=${ objet.id }" class="btn btn-success">Equiper</a>
+                                    </c:if>
+                                    <c:if test="${ objet.type.equals('potion')}">
+                                        <a href="" class="btn btn-success">Utiliser</a>
+                                    </c:if>
+                                </td>
                         </c:forEach>
                     </tbody>
                 </table>
+            </div>
+
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <a class="btn btn-primary" href="accueil" type="button" >Retour</a>
             </div>
 
         </body>

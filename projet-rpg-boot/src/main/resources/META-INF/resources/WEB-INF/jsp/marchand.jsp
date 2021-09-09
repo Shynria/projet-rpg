@@ -25,19 +25,21 @@
 </head>
 
 <body>
-	<nav>
-	<ul>
-		<li><a id="accueil" href="accueil">accueil</a></li>
-		<li><a id="pageDemarrage" href="menu-demarrer">Page de
-				démarrage</a></li>
-	</ul>
-	</nav>
-	<div>
+	<header>
+		<p>
+			${hero.getArgent()} Gold<img src="assets/icones/coins.png" alt="coins" width="30px" height="30px">
+			${hero.getPvActuel()}/${hero.getPvMax()}<img src="assets/icones/hearts.png" alt="heart" width="30px" height="30px">
+		</p>
+	</header>
+
 		<a href="accueil"><img id="exit" src="assets/icones/exit.png"></a>
 		<a href="shop" class="btn">
 			<img id="buy" src="assets/icones/buy.png">
 		</a>
+		<a href="vendre"><img id="vendre" src="assets/icones/vendre.png"></a>
 	</div>
+
+
 
 <!-- 	<div id="div"></div> -->
 <!-- 	<table id="tableAchat" style="visibility: hidden" -->

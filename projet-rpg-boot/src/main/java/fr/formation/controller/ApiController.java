@@ -139,12 +139,13 @@ public class ApiController {
     }
 
     @GetMapping("/taverne")
+    @JsonView(Views.Repos.class)
     public Repos taverne() {
 
         Hero monHero = sauvegarde.getMonHeroAJouer();
         Random R = new Random();
         int PourcentPvGagne = R.nextInt(20) + 80;
-        int pvGagne = monHero.getPvMax() * ((int) (double) PourcentPvGagne / 100);
+        double pvGagne = monHero.getPvMax() * ( (double) PourcentPvGagne / 100);
         int pvGagneRound = (int) Math.round(pvGagne);
         BigDecimal argentPerduTaverne = new BigDecimal(5);
 
@@ -153,23 +154,31 @@ public class ApiController {
         monHero.setPvActuel(monHero.getPvActuel() + pvGagneRound);
         monHero.setArgent(monHero.getArgent().subtract(argentPerduTaverne));
 
+        if(monHero.getPvActuel() > monHero.getPvMax()){
+            monHero.setPvActuel(monHero.getPvMax());
+        }
+
         daoHero.save(monHero);
         return repos;
     }
 
     @GetMapping("/tente")
+    @JsonView(Views.Repos.class)
     public Repos tente() {
 
         Hero monHero = sauvegarde.getMonHeroAJouer();
         Random R = new Random();
         int PourcentPvGagne = R.nextInt(20) + 30;
-        int pvGagne = monHero.getPvMax() * ((int) (double) PourcentPvGagne / 100);
+        double pvGagne = monHero.getPvMax() * ((double) PourcentPvGagne / 100);
         int pvGagneRound = (int) Math.round(pvGagne);
 
         Repos repos = new Repos();
-        repos.setPvRecupere(pvGagne);
+        repos.setPvRecupere(pvGagneRound);
 
         monHero.setPvActuel(monHero.getPvActuel() + pvGagneRound);
+        if(monHero.getPvActuel() > monHero.getPvMax()){
+            monHero.setPvActuel(monHero.getPvMax());
+        }
 
         daoHero.save(monHero);
         return repos;

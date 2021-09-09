@@ -29,11 +29,11 @@
 	</p>
 	<p>
 		<a href="#taverne"> <img src="assets/icones/auberge.png" alt="auberge"
-			width="70px" height="70px"></a>
+			width="70px" height="70px" id="taverneimg"></a>
 	</p>
 	<p>
 		<a href="#tente"> <img src="assets/icones/tent.png" alt="tente"
-			width="100px" height="100px"></a>
+			width="100px" height="100px" id="tenteimg"></a>
 	</p>
 
 	<p>
@@ -56,18 +56,14 @@
 
 	<div class="modal" id="taverne">
 		<div class="modal_content">
-			<h2>Vous passez une nuit douce et chalereuse à l'auberge</h2>
-			<img src="assets/images/tavern.jpg" alt="taverne" width="700px">
-			<p>Vous regagnez X PV</p>
+			
 			<a href="#1" class="modal_close">&times;</a>
 		</div>
 	</div>
 
 	<div class="modal" id="tente">
 		<div class="modal_content">
-			<h2>Vous passez une nuit paisible à vous reposer</h2>
-			<img src="assets/images/camp_fire.jpg" alt="camp_fire" width="700px">
-			<p>Vous regagnez X PV</p>
+			
 			<a href="#2" class="modal_close">&times;</a>
 		</div>
 	</div>
@@ -78,7 +74,7 @@
 				Etes-vous temeraire?
 			</div>
 			<button id="combat_facile">Mauviette</button>
-			<button id="bombat_moyen">Aventurier</button>
+			<button id="combat_moyen">Aventurier</button>
 			<button id="combat_difficile">Legende</button>
 			<a href="#3" class="modal_close">&times;</a>
 		</div>
