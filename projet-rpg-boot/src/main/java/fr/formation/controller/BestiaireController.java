@@ -10,7 +10,8 @@ import fr.formation.dao.IBestiaireDaoJpaRepository;
 @Controller
 public class BestiaireController {
 	@Autowired
-	IBestiaireDaoJpaRepository daoBestiaire;
+	private IBestiaireDaoJpaRepository daoBestiaire;
+
 	
 	@GetMapping("/bestiaire")
 	public String bestiaire(Model model){

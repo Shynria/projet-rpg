@@ -8,6 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
+
 @Entity
 @Table(name = "bestiaire")
 public class Bestiaire {
@@ -17,15 +21,19 @@ public class Bestiaire {
 	private int id;
 	
 	@Column(name = "BESTIAIRE_LEVEL", nullable = false)
+	@JsonView(Views.Rencontre.class)
 	private int level;
 	
 	@Column(name = "BESTIAIRE_NOM", length = 50)
+	@JsonView(Views.Rencontre.class)
 	private String nom;
 	
 	@Column(name = "BESTIAIRE_XP_DONNE", nullable = false)
+	@JsonView(Views.Rencontre.class)
 	private int XpDonnee;
 	
 	@Column(name = "BESTIAIRE_THUNE", nullable = true)
+	@JsonView(Views.Rencontre.class)
 	private int thune;
 	
 	@OneToOne
@@ -33,6 +41,7 @@ public class Bestiaire {
 	private Attribut attribut;
 	
 	@Column(name = "BESTIAIRE_IMAGE")
+	@JsonView(Views.Rencontre.class)
 	private String image;
 	
 	

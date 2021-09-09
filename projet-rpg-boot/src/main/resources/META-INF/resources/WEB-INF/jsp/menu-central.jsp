@@ -8,6 +8,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <script defer src="assets/js/son.js"></script>
+<script defer src="assets/js/combat.js"></script>
 <title>A toi de jouer !</title>
 </head>
 <body>
@@ -35,9 +36,27 @@
 			width="100px" height="100px"></a>
 	</p>
 
+	<p>
+		<a href="inventaire"> <img src="assets/icones/knapsack.png" alt="inventaire" 
+			width="60px" height="60px" ></a>
+	</p>
+
+	<p>
+		<a href="bestiaire"> <img src="assets/icones/bestaire.png" alt="bestaire" 
+			width="60px" height="60px" ></a>
+	</p>
+
+	<p>
+		<a href="liste-objet"> <img src="assets/icones/objet-index.png" alt="index-objet" 
+			width="60px" height="60px" ></a>
+	</p>
+
+
+
+
 	<div class="modal" id="taverne">
 		<div class="modal_content">
-			<h2>Vous passez une nuit douce et chalereuse � l'auberge</h2>
+			<h2>Vous passez une nuit douce et chalereuse à l'auberge</h2>
 			<img src="assets/images/tavern.jpg" alt="taverne" width="700px">
 			<p>Vous regagnez X PV</p>
 			<a href="#1" class="modal_close">&times;</a>
@@ -46,7 +65,7 @@
 
 	<div class="modal" id="tente">
 		<div class="modal_content">
-			<h2>Vous passez une nuit paisible � vous reposer</h2>
+			<h2>Vous passez une nuit paisible à vous reposer</h2>
 			<img src="assets/images/camp_fire.jpg" alt="camp_fire" width="700px">
 			<p>Vous regagnez X PV</p>
 			<a href="#2" class="modal_close">&times;</a>
@@ -55,10 +74,13 @@
 
 	<div class="modal" id="expedition">
 		<div class="modal_content">
-			<h2>Vous tombez sur un monstre ! C'est un </h2>
-			
-			<p>Vous perdez X PV</p>
-			<a href="#1" class="modal_close">&times;</a>
+			<div>
+				Etes-vous temeraire?
+			</div>
+			<button id="combat_facile">Mauviette</button>
+			<button id="bombat_moyen">Aventurier</button>
+			<button id="combat_difficile">Legende</button>
+			<a href="#3" class="modal_close">&times;</a>
 		</div>
 	</div>
 

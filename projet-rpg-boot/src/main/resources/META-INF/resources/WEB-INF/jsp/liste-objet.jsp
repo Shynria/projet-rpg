@@ -15,16 +15,23 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
 	crossorigin="anonymous"></script>
+	
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
-	<table class="table table-stripped">
+<div class="container">
+	<h2>Liste des objets du jeux :</h2>
+	<table class="table table-striped">
 		<thead style="text-align:center;">
 			<tr>
 				<th>Nom</th>
 				<th>Type</th>
 				<th>Level</th>
 				<th>Prix</th>
-				<th>Attribut modifié</th>
+				<th>Attribut modifie</th>
 				<th>Effets</th>
 				<th>PV rendu</th>
 			</tr>
@@ -43,5 +50,10 @@
 		</tbody>
 
 	</table>
+
+	<div class="d-grid gap-2 col-4 mx-auto">
+		<a class="btn btn-primary" href="accueil" type="button" >Retour</a>
+	</div>
+</div>
 </body>
 </html>

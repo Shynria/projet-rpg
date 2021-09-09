@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="assets/css/StyleCreerHero.css">
 <script defer src="assets/js/creerHero.js"></script>
 
-<title>Créer un Hero</title>
+<title>Crï¿½er un Hero</title>
 </head>
 
 <body>
@@ -27,14 +27,14 @@
         </div>
 
         <div>
-            <h2>Créez votre Héro !</h2>
+            <h2>Crï¿½ez votre Hï¿½ro !</h2>
         </div>
     </header>
 
     <section>
         <form method="POST" class="was-validated">
             <div class="col-6">
-                <label for="nomHero" class="form-label" id="nomHero">Nom du Héro : </label>
+                <label for="nomHero" class="form-label" id="nomHero">Nom du Hï¿½ro : </label>
                 <input type="text" class="form-control" id="nomHero" aria-describedby="nomHero" name="nom" required >
 
                 <div class="valid-feedback">Nom valide</div>
@@ -42,7 +42,7 @@
             </div>
 
             <div>
-                <label for="statHero" class="form-label">Stats de votre Héro : 10 points de compétences à
+                <label for="statHero" class="form-label">Stats de votre Hero : 10 points de competences Ã 
                     attribuer</label>
             </div>
 
@@ -86,7 +86,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statDef" class="form-label">Stats de défense : </label>
+                <label for="statDef" class="form-label">Stats de dï¿½fense : </label>
             </div>
             <div class="btn-group Def required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">
@@ -125,7 +125,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statAgi" class="form-label">Stats d'agilité : </label>
+                <label for="statAgi" class="form-label">Stats d'agilitï¿½ : </label>
             </div>
             <div class="btn-group Agi required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">
@@ -164,7 +164,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statVit" class="form-label">Stats de vitalité : </label>
+                <label for="statVit" class="form-label">Stats de vitalitï¿½ : </label>
             </div>
             <div class="btn-group Vit required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">

@@ -17,10 +17,10 @@ import fr.formation.service.InstanceService;
 @Controller
 public class ChargerHeroController {
 	@Autowired
-	IHeroDaoJpaRepository daoHero;
+	private IHeroDaoJpaRepository daoHero;
 	
 	@Autowired
-	ILevelDaoJpaRepository daoLevel;
+	private ILevelDaoJpaRepository daoLevel;
 	
 	@Autowired
 	private InstanceService sauvegarde;

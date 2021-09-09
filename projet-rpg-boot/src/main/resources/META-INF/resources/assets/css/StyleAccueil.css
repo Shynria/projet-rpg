@@ -29,6 +29,26 @@ img[alt="tente"]{
     margin-left: 350px;
     animation: pulse 2s infinite;
 }
+
+img[alt="inventaire"]{
+    margin-top: -600px;
+    animation: pulse 2s infinite;
+}
+
+img[alt="bestaire"]{
+    margin-top: 125px;
+     animation: pulse 2s infinite;
+}
+
+img[alt="index-objet"]{
+    margin-top: -75px;
+    margin-left: 80px;
+    animation: pulse 2s infinite;
+}
+
+
+
+
 header p{
 /*     margin-left: 1350px; */
     float: right;

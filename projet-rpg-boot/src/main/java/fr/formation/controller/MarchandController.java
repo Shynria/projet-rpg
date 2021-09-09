@@ -23,8 +23,9 @@ import fr.formation.service.InstanceService;
 public class MarchandController {
 	@Autowired
 	private IObjetDaoJpaRepository daoObjet;
+	
 	@Autowired
-	InstanceService sauvegarde;
+	private InstanceService sauvegarde;
 	
 	@Autowired
 	private IHeroDaoJpaRepository daoHero;

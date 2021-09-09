@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
+
 @Entity
 @Table(name = "attribut")
 public class Attribut {

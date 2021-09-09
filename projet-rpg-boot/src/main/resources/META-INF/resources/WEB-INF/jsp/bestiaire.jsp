@@ -24,7 +24,9 @@
 <title>Bestiaire</title>
 </head>
 <body>
-<table class="table table-striped">
+<div class="container">
+	<h2>Liste des monstres :</h2>
+	<table class="table table-striped">
 		<thead style="text-align:center;">
 			<tr>
 				<th></th>
@@ -49,5 +51,9 @@
 		</tbody>
 	</table>
 
+	<div class="d-grid gap-2 col-4 mx-auto">
+		<a class="btn btn-primary" href="accueil" type="button" >Retour</a>
+	</div>
+</div>
 </body>
 </html>
