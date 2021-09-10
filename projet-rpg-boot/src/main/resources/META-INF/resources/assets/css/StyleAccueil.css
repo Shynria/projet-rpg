@@ -46,6 +46,12 @@ img[alt="index-objet"]{
     animation: pulse 2s infinite;
 }
 
+img[alt="exit"]{
+    margin-top: -73px;
+    margin-left: 1250px;
+    animation: pulse 2s infinite;
+}
+
 
 
 

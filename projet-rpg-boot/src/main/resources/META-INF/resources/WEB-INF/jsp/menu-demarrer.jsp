@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,8 +31,8 @@
 
     <section>
         <div class="d-grid gap-2 col-4 mx-auto">
-            <a class="btn btn-primary" href="creer-hero" type="button" >Creer un Hero</a>
-            <a class="btn btn-success" href="charger-hero" type="button">Charger un Hero</a> 
+            <a class="btn btn-primary" href="creer-hero" type="button" >Créer un Héro</a>
+            <a class="btn btn-success" href="charger-hero" type="button">Charger un Héro</a> 
         </div>
 
     </section>

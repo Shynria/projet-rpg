@@ -25,4 +25,11 @@ public class AccueilController {
 		model.addAttribute("hero", monHero);
 		return "menu-central";
 	}
+
+	@GetMapping("/quitter-hero")
+	public String quit(){
+		Hero monHero = sauvegarde.getMonHeroAJouer();
+		sauvegarde.arreterJeux(monHero);
+		return "redirect:/menu-demarrer";
+	}
 }

@@ -29,6 +29,9 @@ public class ChargerHeroController {
 	
 	@GetMapping("/charger-hero")
 	public String chargerHero(Model model){
+		Hero monHero = new Hero();
+		sauvegarde.setMonHeroAJouer(monHero);
+		sauvegarde.jeJoue(monHero);
 		model.addAttribute("heros", daoHero.findAll());
 		model.addAttribute("levels", daoLevel.findAll());
 		return "charger-hero";

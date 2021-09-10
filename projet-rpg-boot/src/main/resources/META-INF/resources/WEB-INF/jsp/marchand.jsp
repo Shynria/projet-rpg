@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,8 +26,8 @@
 <body>
 	<header>
 		<p>
-			${hero.getArgent()} Gold<img src="assets/icones/coins.png" alt="coins" width="30px" height="30px">
-			${hero.getPvActuel()}/${hero.getPvMax()}<img src="assets/icones/hearts.png" alt="heart" width="30px" height="30px">
+			${hero.argent} Gold<img src="assets/icones/coins.png" alt="coins" width="30px" height="30px">
+			${hero.pvActuel}/${hero.pvMax}<img src="assets/icones/hearts.png" alt="heart" width="30px" height="30px">
 		</p>
 	</header>
 
@@ -41,63 +40,7 @@
 
 
 
-<!-- 	<div id="div"></div> -->
-<!-- 	<table id="tableAchat" style="visibility: hidden" -->
-<!-- 		style="margin-left: 10px;" id="table" -->
-<!-- 		class="table table-bordered border-primary"> -->
-<!-- 		<thead style="text-align: center;"> -->
-<!-- 			<tr> -->
-<!-- 				<th scope="col">Icone</th> -->
-<!-- 				<th scope="col">Nom</th> -->
-<!-- 				<th scope="col">Bonus</th> -->
-<!-- 				<th scope="col">Prix (G)</th> -->
-<!-- 				<th scope="col">Action</th> -->
-<!-- 			</tr> -->
-<!-- 		</thead> -->
-<!-- 		<tbody style="text-align: center;"> -->
 
-<!-- 			<tr> -->
-<!-- 				<th scope="row"><img width="40px" height="40px" -->
-<!-- 					src="assets/icones/potion-d'amour.png"></th> -->
-<!-- 				<td>Potion de soin</td> -->
-<!-- 				<td>+10HP</td> -->
-<!-- 				<td id="prixPotion">5</td> -->
-<!-- 				<td><button class="button" -->
-<!-- 						onclick="achatPotion('Potion de soin');">ACHETER</button> -->
-<!-- 					<button class="comptMinus">-</button> -->
-<!-- 					<button class="comptPlus">+</button> -->
-<!-- 					<button id="compt">1</button></td> -->
-<!-- 			</tr> -->
-<!-- 			<tr id="itemEpee"> -->
-<!-- 				<th scope="row"><img width="40px" height="40px" -->
-<!-- 					src="assets/icones/epee.png"></th> -->
-<!-- 				<td>Ep�e blanche</td> -->
-<!-- 				<td>+10ATK</td> -->
-<!-- 				<td>7</td> -->
-<!-- 				<td><button class="button" id="buttonEpee" -->
-<!-- 						onclick="achatEpee('Ep�e blanche');">ACHETER</button></td> -->
-<!-- 			</tr> -->
-<!-- 			<tr id="itemArmure"> -->
-<!-- 				<th scope="row"><img width="40px" height="40px" -->
-<!-- 					src="assets/icones/armure.png"></th> -->
-<!-- 				<td>C�te de maille</td> -->
-<!-- 				<td>+10DEF</td> -->
-<!-- 				<td>10</td> -->
-<!-- 				<td><button class="button" id="buttonArmure" -->
-<!-- 						onclick="achatArmure('C�te de maille');">ACHETER</button></td> -->
-<!-- 			</tr> -->
-<!-- 			<tr id="itemBijou"> -->
-<!-- 				<td><img width="40px" height="40px" -->
-<!-- 					src="assets/icones/bijou.png"></td> -->
-<!-- 				<td>Collier magique</td> -->
-<!-- 				<td>+5AGI,+5ATK</td> -->
-<!-- 				<td>15</td> -->
-<!-- 				<td><button class="button" id="buttonBijou" -->
-<!-- 						onclick="achatBijou('Collier magique');">ACHETER</button></td> -->
-<!-- 			</tr> -->
-<!-- 		</tbody> -->
-<!-- 	</table> -->
-<!-- 	</div> -->
 	<div>
 		<audio controls src="assets/sounds/shop-doorbell.mp3" autoplay="true"
 			hidden="true"></audio>

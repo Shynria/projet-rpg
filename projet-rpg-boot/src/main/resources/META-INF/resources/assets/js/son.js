@@ -49,3 +49,15 @@ document.querySelector('a[href="#1"]').addEventListener('click', () => {
     document.getElementById('sound_taverne').currentTime=0;
     document.getElementById('accueil').play();
 })
+
+//Musique page fight
+document.querySelector('a[href="#expedition"]').addEventListener('click', () => {
+    document.getElementById('sound_fight').play();
+    document.getElementById('sound_fight').volume=0.2;
+    document.getElementById('accueil').pause();
+})
+document.querySelector('a[href="#3"]').addEventListener('click', () => {
+    document.getElementById('sound_fight').pause();
+    document.getElementById('sound_fight').currentTime=0;
+    document.getElementById('accueil').play();
+})

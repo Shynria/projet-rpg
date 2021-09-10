@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.formation.api.Views;
 import fr.formation.dao.IBestiaireDaoJpaRepository;
 import fr.formation.dao.IHeroDaoJpaRepository;
+import fr.formation.dao.ILevelDaoJpaRepository;
 import fr.formation.model.Bestiaire;
 import fr.formation.model.Hero;
+import fr.formation.model.Level;
 import fr.formation.model.Rencontre;
 import fr.formation.model.Repos;
 import fr.formation.service.InstanceService;
@@ -36,6 +38,9 @@ public class ApiController {
 
     @Autowired
     private IBestiaireDaoJpaRepository daoBestiaire;
+
+    @Autowired
+    private ILevelDaoJpaRepository daoLevel;
 
     @GetMapping("/combat_difficile")
     @JsonView(Views.Rencontre.class)
@@ -59,7 +64,20 @@ public class ApiController {
         BigDecimal thuneconverti = new BigDecimal(monstreRandom.getThune());
         monHero.setArgent(monHero.getArgent().add(thuneconverti));
         monHero.setXp(monHero.getXp() + monstreRandom.getXpDonnee());
+        
         daoHero.save(monHero);
+
+        Level niveau = daoLevel.findById(monHero.getNiveau()).get();
+
+        if (monHero.getXp() >= niveau.getPointXP()) {
+            monHero.setNiveau(monHero.getNiveau() + 1);
+            monHero.setXp(monHero.getXp() - niveau.getPointXP());
+            rencontre.setLevelUp(true);
+        }
+
+        if(monHero.getPvActuel()<=0) {
+            rencontre.setMort(true);
+        }
 
         sauvegarde.setMonHeroAJouer(monHero);
         return rencontre;
@@ -83,11 +101,34 @@ public class ApiController {
 
         Rencontre rencontre = new Rencontre(pvPerduRound, monstreRandom);
 
+        int def = monHero.getAttribut().getDef()-10;
+        if (def > 0) {
+            do {
+                pvPerduRound=pvPerduRound-(int)(0.1*monHero.getPvMax());
+                def = def -5;
+            }while(def > 5);
+        }
+        if(pvPerduRound < 0){
+            pvPerduRound = 0;
+        }
+
         monHero.setPvActuel(monHero.getPvActuel() - pvPerduRound);
         BigDecimal thuneconverti = new BigDecimal(monstreRandom.getThune());
         monHero.setArgent(monHero.getArgent().add(thuneconverti));
         monHero.setXp(monHero.getXp() + monstreRandom.getXpDonnee());
         daoHero.save(monHero);
+
+        Level niveau = daoLevel.findById(monHero.getNiveau()).get();
+
+        if (monHero.getXp() >= niveau.getPointXP()) {
+            monHero.setNiveau(monHero.getNiveau() + 1);
+            monHero.setXp(monHero.getXp() - niveau.getPointXP());
+            rencontre.setLevelUp(true);
+        }
+
+        if(monHero.getPvActuel()<=0) {
+            rencontre.setMort(true);
+        }
 
         sauvegarde.setMonHeroAJouer(monHero);
         return rencontre;
@@ -110,12 +151,25 @@ public class ApiController {
             int pvPerduRound = (int) Math.round(pvPerdu);
 
             rencontre.setPvPerdu(pvPerduRound);
-            rencontre.setMonstreRencontré(monstreRandom);
+            rencontre.setMonstreRencontre(monstreRandom);
 
             monHero.setPvActuel(monHero.getPvActuel() - pvPerduRound);
             BigDecimal thuneconverti = new BigDecimal(monstreRandom.getThune());
             monHero.setArgent(monHero.getArgent().add(thuneconverti));
             monHero.setXp(monHero.getXp() + monstreRandom.getXpDonnee());
+
+            Level niveau = daoLevel.findById(monHero.getNiveau()).get();
+
+            if (monHero.getXp() >= niveau.getPointXP()) {
+                monHero.setNiveau(monHero.getNiveau() + 1);
+                monHero.setXp(monHero.getXp() - niveau.getPointXP());
+                rencontre.setLevelUp(true);
+            }
+
+            if(monHero.getPvActuel()<=0) {
+                rencontre.setMort(true);
+            }
+
             daoHero.save(monHero);
 
         } else {
@@ -127,12 +181,25 @@ public class ApiController {
             int pvPerduRound = (int) Math.round(pvPerdu);
 
             rencontre.setPvPerdu(pvPerduRound);
-            rencontre.setMonstreRencontré(monstreRandom);
+            rencontre.setMonstreRencontre(monstreRandom);
 
             monHero.setPvActuel(monHero.getPvActuel() - pvPerduRound);
             BigDecimal thuneconverti = new BigDecimal(monstreRandom.getThune());
             monHero.setArgent(monHero.getArgent().add(thuneconverti));
             monHero.setXp(monHero.getXp() + monstreRandom.getXpDonnee());
+
+            Level niveau = daoLevel.findById(monHero.getNiveau()).get();
+
+            if (monHero.getXp() >= niveau.getPointXP()) {
+                monHero.setNiveau(monHero.getNiveau() + 1);
+                monHero.setXp(monHero.getXp() - niveau.getPointXP());
+                rencontre.setLevelUp(true);
+            }
+
+            if(monHero.getPvActuel()<=0) {
+                rencontre.setMort(true);
+            }
+
             daoHero.save(monHero);
         }
         return rencontre;
@@ -145,7 +212,7 @@ public class ApiController {
         Hero monHero = sauvegarde.getMonHeroAJouer();
         Random R = new Random();
         int PourcentPvGagne = R.nextInt(20) + 80;
-        double pvGagne = monHero.getPvMax() * ( (double) PourcentPvGagne / 100);
+        double pvGagne = monHero.getPvMax() * ((double) PourcentPvGagne / 100);
         int pvGagneRound = (int) Math.round(pvGagne);
         BigDecimal argentPerduTaverne = new BigDecimal(5);
 
@@ -154,7 +221,7 @@ public class ApiController {
         monHero.setPvActuel(monHero.getPvActuel() + pvGagneRound);
         monHero.setArgent(monHero.getArgent().subtract(argentPerduTaverne));
 
-        if(monHero.getPvActuel() > monHero.getPvMax()){
+        if (monHero.getPvActuel() > monHero.getPvMax()) {
             monHero.setPvActuel(monHero.getPvMax());
         }
 
@@ -176,7 +243,7 @@ public class ApiController {
         repos.setPvRecupere(pvGagneRound);
 
         monHero.setPvActuel(monHero.getPvActuel() + pvGagneRound);
-        if(monHero.getPvActuel() > monHero.getPvMax()){
+        if (monHero.getPvActuel() > monHero.getPvMax()) {
             monHero.setPvActuel(monHero.getPvMax());
         }
 

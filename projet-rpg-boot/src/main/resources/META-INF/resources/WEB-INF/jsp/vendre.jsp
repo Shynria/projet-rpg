@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,8 +25,8 @@
 
 	<header>
 		<p>
-			${hero.getArgent()} Gold<img src="assets/icones/coins.png" alt="coins" width="30px" height="30px">
-			${hero.getPvActuel()}/${hero.getPvMax()}<img src="assets/icones/hearts.png" alt="heart" width="30px" height="30px">
+			${hero.argent} Gold<img src="assets/icones/coins.png" alt="coins" width="30px" height="30px">
+			${hero.pvActuel}/${hero.pvMax}<img src="assets/icones/hearts.png" alt="heart" width="30px" height="30px">
 		</p>
 	</header>
 
@@ -38,7 +37,7 @@
 				<th>Nom</th>
 				<th>Bonus</th>
 				<th>Stat</th>
-				<th>Prix</th>
+				<th>Montant (G)</th>
 				<th>Action</th>
 			</tr>
 		</thead>

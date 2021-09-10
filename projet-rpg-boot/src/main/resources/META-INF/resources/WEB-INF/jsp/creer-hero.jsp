@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,7 +16,7 @@
 <link rel="stylesheet" href="assets/css/StyleCreerHero.css">
 <script defer src="assets/js/creerHero.js"></script>
 
-<title>Creer un Hero</title>
+<title>Créer un Héro</title>
 </head>
 
 <body>
@@ -27,14 +26,14 @@
         </div>
 
         <div>
-            <h2>Creez votre Hero !</h2>
+            <h2>Créez votre Hero !</h2>
         </div>
     </header>
 
     <section>
         <form method="POST" class="was-validated">
             <div class="col-6">
-                <label for="nomHero" class="form-label" id="nomHero">Nom du Hero : </label>
+                <label for="nomHero" class="form-label" id="nomHero">Nom du Héro : </label>
                 <input type="text" class="form-control" id="nomHero" aria-describedby="nomHero" name="nom" required >
 
                 <div class="valid-feedback">Nom valide</div>
@@ -42,7 +41,7 @@
             </div>
 
             <div>
-                <label for="statHero" class="form-label">Stats de votre Hero : 10 points de competences à
+                <label for="statHero" class="form-label">Stats de votre Héro : 10 points de compétences à
                     attribuer</label>
             </div>
 
@@ -86,7 +85,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statDef" class="form-label">Stats de defense : </label>
+                <label for="statDef" class="form-label">Stats de défense : </label>
             </div>
             <div class="btn-group Def required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">
@@ -125,7 +124,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statAgi" class="form-label">Stats d'agilite : </label>
+                <label for="statAgi" class="form-label">Stats d'agilité : </label>
             </div>
             <div class="btn-group Agi required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">
@@ -164,7 +163,7 @@
             </div>
 
             <div class="col-6">
-                <label for="statVit" class="form-label">Stats de vitalite : </label>
+                <label for="statVit" class="form-label">Stats de vitalité : </label>
             </div>
             <div class="btn-group Vit required" role="group" aria-label="Basic radio toggle button group"
                 aria-required="true">

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,7 +23,7 @@
 
 <link rel="stylesheet" href="assets/css/styleChargerHero.css">
 
-<title>Charger un Hero</title>
+<title>Charger un Héro</title>
 </head>
 
 <body>
@@ -34,7 +33,7 @@
 	</div>
 
 	<div>
-		<h2>Choisissez votre Hero !</h2>
+		<h2>Choisissez votre Héro !</h2>
 	</div>
 	</header>
 

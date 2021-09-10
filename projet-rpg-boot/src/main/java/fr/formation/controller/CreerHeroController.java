@@ -1,6 +1,8 @@
 package fr.formation.controller;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import fr.formation.dao.IObjetDaoJpaRepository;
 import fr.formation.model.Attribut;
 import fr.formation.model.Hero;
 import fr.formation.model.Inventaire;
+import fr.formation.model.Objet;
 import fr.formation.service.InstanceService;
 
 @Controller
@@ -55,12 +58,17 @@ public class CreerHeroController {
 				monHero.setPvActuel(pvMax);
 				monHero.setAttribut(monAttribut);
 				Inventaire monInventaire = new Inventaire();
-				monHero.setInventaire(monInventaire);
-				monInventaire.getObjets().add(daoObjet.findById(1).get());
-				daoAttribut.save(monAttribut);
-				daoInventaire.save(monInventaire);
-				daoHero.save(monHero);
 				
+				List<Objet> monObjet = new ArrayList<>();
+				monObjet.add(daoObjet.findById(1).get());
+				monInventaire.setObjets(monObjet);
+				//monInventaire.getObjets().add(daoObjet.findById(1).get());
+				
+				daoAttribut.save(monAttribut);
+				daoHero.save(monHero);
+				monInventaire.setHero(monHero);
+				daoInventaire.save(monInventaire);
+				monHero.setInventaire(monInventaire);
 				sauvegarde.setMonHeroAJouer(monHero);
 				
 				return "redirect:/accueil";

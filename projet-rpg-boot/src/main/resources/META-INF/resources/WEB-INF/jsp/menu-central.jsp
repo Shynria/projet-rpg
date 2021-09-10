@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -51,6 +50,11 @@
 			width="60px" height="60px" ></a>
 	</p>
 
+	<p>
+		<a href="menu-demarrer"> <img src="assets/icones/porte.png" alt="exit" 
+			width="60px" height="60px" ></a>
+	</p>
+
 
 
 
@@ -92,9 +96,12 @@
 		<audio controls src="assets/sounds/accueil_music.mp3" id="accueil"
 			autoplay="true" loop="true" hidden="true"></audio>
 		<audio controls src="assets/sounds/around_the_fire.mp3" id="sound_camp_fire"
-			loop="true"></audio>
+			loop="true" hidden="true"></audio>
 		<audio controls src="assets/sounds/skyrim_tavern.mp3" id="sound_taverne"
-			loop="true"></audio>
+			loop="true" hidden="true"></audio>
+
+		<audio controls src="assets/sounds/ffi-victory.mp3" id="sound_fight" 
+			loop="true" hidden="true"></audio>
 
 		<script>
 			document.querySelector('audio').volume = 0.1;
