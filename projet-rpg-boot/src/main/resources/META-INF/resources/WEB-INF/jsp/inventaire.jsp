@@ -148,10 +148,10 @@
                             <td>
                                 <c:if
                                     test="${ objet.type.equals('arme') || objet.type.equals('armure') || objet.type.equals('bijoux') }">
-                                    <a href="equiper-objet?id=${ objet.id }" class="btn btn-success">Equiper</a>
+                                    <a href="equiper-objet?id=${ objet.id }" class="btn btn-primary">Equiper</a>
                                 </c:if>
                                 <c:if test="${ objet.type.equals('potion')}">
-                                    <a href="" class="btn btn-success">Utiliser</a>
+                                    <a href="utiliser-potion?id=${ objet.id }" class="btn btn-success">Utiliser</a>
                                 </c:if>
                             </td>
                     </c:forEach>
